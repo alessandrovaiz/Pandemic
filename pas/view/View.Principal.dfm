@@ -144,7 +144,8 @@ object FrmPrincipal: TFrmPrincipal
         ParentFont = False
         Transparent = True
         Layout = tlCenter
-        ExplicitTop = -4
+        ExplicitWidth = 396
+        ExplicitHeight = 37
       end
     end
     object PnlBordaHeade: TPanel

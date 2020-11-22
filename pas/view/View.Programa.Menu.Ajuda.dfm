@@ -4,8 +4,8 @@ object FrmAjuda: TFrmAjuda
   Align = alClient
   BorderStyle = bsNone
   Caption = 'FrmAjuda'
-  ClientHeight = 338
-  ClientWidth = 651
+  ClientHeight = 462
+  ClientWidth = 744
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,12 +15,20 @@ object FrmAjuda: TFrmAjuda
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Panel1: TPanel
-    Left = 200
-    Top = 128
-    Width = 185
-    Height = 41
-    Caption = 'Ajuda'
+  object PnlPrograma: TPanel
+    Left = 0
+    Top = 0
+    Width = 744
+    Height = 462
+    Margins.Left = 1
+    Margins.Top = 4
+    Margins.Right = 1
+    Margins.Bottom = 1
+    Align = alClient
+    BevelOuter = bvNone
+    Color = clWhite
+    ParentBackground = False
     TabOrder = 0
+    ExplicitTop = -6
   end
 end

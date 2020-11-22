@@ -29,7 +29,7 @@ object FrmRelatorio: TFrmRelatorio
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -6
+    ExplicitTop = -6
     object Titulo: TLabel
       Left = 217
       Top = 32
@@ -69,11 +69,12 @@ object FrmRelatorio: TFrmRelatorio
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object ComboBox1: TComboBox
+    object CmbPais: TComboBox
       Left = 136
       Top = 144
       Width = 313
       Height = 26
+      Color = 15067885
       Font.Charset = DEFAULT_CHARSET
       Font.Color = 7366144
       Font.Height = -15
@@ -137,17 +138,20 @@ object FrmRelatorio: TFrmRelatorio
         TabOrder = 1
       end
     end
-    object ComboBox2: TComboBox
+    object CmbConsulta: TComboBox
       Left = 136
       Top = 295
       Width = 313
       Height = 26
+      Color = 15067885
       Font.Charset = DEFAULT_CHARSET
       Font.Color = 7366144
       Font.Height = -15
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      ParentShowHint = False
+      ShowHint = False
       TabOrder = 2
       Text = 'Selecione'
     end

@@ -11,14 +11,14 @@ type
     PnlPrograma: TPanel;
     Titulo: TLabel;
     LblSelectPais: TLabel;
-    ComboBox1: TComboBox;
+    CmbPais: TComboBox;
     LblSelectConsulta: TLabel;
     Panel1: TPanel;
     RdCidade: TRadioButton;
     RdRegiao: TRadioButton;
     LblCidade: TLabel;
     LblRegiao: TLabel;
-    ComboBox2: TComboBox;
+    CmbConsulta: TComboBox;
     PnlBotao: TPanel;
     SpeedButton1: TSpeedButton;
   private

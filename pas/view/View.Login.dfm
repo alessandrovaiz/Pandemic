@@ -1112,7 +1112,7 @@ object FrmLogin: TFrmLogin
             CharCase = ecLowerCase
             Color = 14079702
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = 14540253
+            Font.Color = 15790320
             Font.Height = -13
             Font.Name = 'Arial'
             Font.Style = [fsBold]
@@ -1163,7 +1163,7 @@ object FrmLogin: TFrmLogin
             CharCase = ecLowerCase
             Color = 14079702
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = 14540253
+            Font.Color = 15790320
             Font.Height = -13
             Font.Name = 'Arial'
             Font.Style = [fsBold]

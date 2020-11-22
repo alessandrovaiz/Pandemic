@@ -71,11 +71,11 @@ begin
     tpCadastros:
       Result := TControllerProgramaMenuCadastro.Create;
     tpRelatorios:
-      Result := TControllerProgramaMenuCadastro.Create;
+      Result := TControllerProgramaMenuRelatorio.Create;
     tpEstatisticas:
       Result := TControllerProgramaMenuEstatistica.Create;
     tpAjuda:
-      Result := TControllerProgramaMenuEstatistica.Create;
+      Result := TControllerProgramaMenuAjuda.Create;
   else
     raise Exception.Create('Factory do controlador não definido!');
   end;

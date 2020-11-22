@@ -77,6 +77,7 @@ begin
   begin
     PanelMenuPrograma.Color := $00E4EAED;
     BotaoMenuPrograma.Font.Color := $00706601;
+    Controlador.Hide;
   end;
 end;
 

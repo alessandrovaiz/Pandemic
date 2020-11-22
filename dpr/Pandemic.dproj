@@ -118,6 +118,27 @@
         <DCCReference Include="..\pas\controller\Controller.Programa.Menu.Relatorio.pas"/>
         <DCCReference Include="..\pas\controller\Controller.Programa.Menu.Estatistica.pas"/>
         <DCCReference Include="..\pas\controller\Controller.Programa.Menu.Ajuda.pas"/>
+        <DCCReference Include="..\pas\vo\VO.Programa.Menu.pas"/>
+        <DCCReference Include="..\pas\view\View.Programa.Menu.PEP.pas">
+            <Form>FrmPEP</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\view\View.Programa.Menu.Cadastro.pas">
+            <Form>FrmCadastro</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\view\View.Programa.Menu.Relatorio.pas">
+            <Form>FrmRelatorio</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\view\View.Programa.Menu.Estatisticas.pas">
+            <Form>FrmEstatisticas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\view\View.Programa.Menu.Ajuda.pas">
+            <Form>FrmAjuda</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

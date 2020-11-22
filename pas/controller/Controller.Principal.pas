@@ -101,11 +101,12 @@ begin
   begin
     oProgramaMenu := TProgramaMenu.Create(oListaProgramaMenu);
     oProgramaMenu.Programa := oEPrograma;
-    oProgramaMenu.Controlador := oEPrograma.GetControladorPrograma;
     oProgramaMenu.PanelPrograma := oFrmView.PnlPrograma;
     oProgramaMenu.PanelMenuPrograma := GetPanelMenu(oEPrograma);
     oProgramaMenu.BotaoMenuPrograma := GetBotaoMenu(oEPrograma, oProgramaMenu.PanelMenuPrograma);
     oProgramaMenu.LabellTituloPrograma := oFrmView.LblNomePrograma;
+    oProgramaMenu.Controlador := oEPrograma.GetControladorPrograma;
+    oProgramaMenu.Controlador.SetParent(oFrmView.PnlPrograma);
 
     oListaProgramaMenu.Add(oProgramaMenu);
   end;

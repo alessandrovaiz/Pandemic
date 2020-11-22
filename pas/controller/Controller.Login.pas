@@ -16,7 +16,6 @@ type
   TControllerLogin = class(TInterfacedObject, IControllerLogin)
   private
     oFrmLogin: TFrmLogin;
-    bAutenticado: Boolean;
 
     procedure CloseClick(Sender: TObject);
     procedure LoginClick(Sender: TObject);
@@ -32,14 +31,16 @@ type
 implementation
 
 uses
-  System.SysUtils;
+  System.SysUtils,
+  Singleton.Usuario,
+  Enum.Permissao.Usuario;
 
 { TControllerLogin }
 
 function TControllerLogin.Autenticar: Boolean;
 begin
   oFrmLogin.ShowModal;
-  Result := bAutenticado;
+  Result := oSingletonUsuario.IdUsuario > 0;
 end;
 
 procedure TControllerLogin.CloseClick(Sender: TObject);
@@ -82,7 +83,8 @@ begin
   { Validar informacoes com o banco }
   if (oFrmLogin.EdtNomeUsuario.Text = 'admin') and (oFrmLogin.EdtSenha.Text = 'admin') then
   begin
-    bAutenticado := True;
+    oSingletonUsuario.IdUsuario := 1;
+    oSingletonUsuario.PermissaoUsuario := tpuAdministrador;
     oFrmLogin.Close;
   end
   else

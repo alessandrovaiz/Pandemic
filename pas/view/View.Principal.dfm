@@ -29,72 +29,9 @@ object FrmPrincipal: TFrmPrincipal
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 141
-    ExplicitHeight = 331
     DesignSize = (
       165
       419)
-    object PnlPep: TPanel
-      Left = 0
-      Top = 0
-      Width = 165
-      Height = 41
-      Align = alTop
-      BevelOuter = bvNone
-      Color = 7366145
-      ParentBackground = False
-      TabOrder = 0
-      ExplicitTop = 53
-      ExplicitWidth = 169
-      object BtnEntrar: TSpeedButton
-        Left = 0
-        Top = 0
-        Width = 165
-        Height = 41
-        Cursor = crHandPoint
-        Align = alClient
-        Caption = 'PEP'
-        Flat = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -15
-        Font.Name = 'Segoe UI'
-        Font.Style = [fsBold]
-        ParentFont = False
-        ExplicitLeft = -20
-        ExplicitTop = -24
-        ExplicitWidth = 149
-      end
-    end
-    object pnlCadastro: TPanel
-      Left = 0
-      Top = 41
-      Width = 165
-      Height = 41
-      Align = alTop
-      BevelOuter = bvNone
-      Color = 15002349
-      ParentBackground = False
-      TabOrder = 1
-      object BtnCadastro: TSpeedButton
-        Left = 0
-        Top = 0
-        Width = 165
-        Height = 41
-        Cursor = crHandPoint
-        Align = alClient
-        Caption = 'Cadastros'
-        Flat = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = 7366145
-        Font.Height = -15
-        Font.Name = 'Segoe UI'
-        Font.Style = [fsBold]
-        ParentFont = False
-        ExplicitTop = -8
-        ExplicitWidth = 169
-      end
-    end
     object PnlSair: TPanel
       Left = 0
       Top = 377
@@ -107,8 +44,7 @@ object FrmPrincipal: TFrmPrincipal
       BevelOuter = bvNone
       Color = 15002349
       ParentBackground = False
-      TabOrder = 2
-      ExplicitTop = 285
+      TabOrder = 0
       object BtnSair: TSpeedButton
         Left = 0
         Top = 0
@@ -127,68 +63,6 @@ object FrmPrincipal: TFrmPrincipal
         ParentFont = False
         ExplicitLeft = 128
         ExplicitTop = 16
-      end
-    end
-    object PnlRelatorio: TPanel
-      Left = 0
-      Top = 82
-      Width = 165
-      Height = 41
-      Align = alTop
-      BevelOuter = bvNone
-      Color = 15002349
-      ParentBackground = False
-      TabOrder = 3
-      ExplicitTop = 95
-      ExplicitWidth = 169
-      object btnRelatorio: TSpeedButton
-        Left = 0
-        Top = 0
-        Width = 165
-        Height = 41
-        Cursor = crHandPoint
-        Align = alClient
-        Caption = 'Relat'#243'rios'
-        Flat = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = 7366145
-        Font.Height = -15
-        Font.Name = 'Segoe UI'
-        Font.Style = [fsBold]
-        ParentFont = False
-        ExplicitTop = -8
-        ExplicitWidth = 169
-      end
-    end
-    object PnlEstatistica: TPanel
-      Left = 0
-      Top = 123
-      Width = 165
-      Height = 41
-      Align = alTop
-      BevelOuter = bvNone
-      Color = 15002349
-      ParentBackground = False
-      TabOrder = 4
-      ExplicitTop = 95
-      ExplicitWidth = 169
-      object BtnEstattistica: TSpeedButton
-        Left = 0
-        Top = 0
-        Width = 165
-        Height = 41
-        Cursor = crHandPoint
-        Align = alClient
-        Caption = 'Estat'#237'sticas'
-        Flat = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = 7366145
-        Font.Height = -15
-        Font.Name = 'Segoe UI'
-        Font.Style = [fsBold]
-        ParentFont = False
-        ExplicitTop = -8
-        ExplicitWidth = 169
       end
     end
   end
@@ -223,7 +97,7 @@ object FrmPrincipal: TFrmPrincipal
       ParentBackground = False
       TabOrder = 0
       object LblLogin: TLabel
-        Left = 147
+        Left = 134
         Top = 190
         Width = 115
         Height = 37
@@ -252,7 +126,7 @@ object FrmPrincipal: TFrmPrincipal
       Color = 15067885
       ParentBackground = False
       TabOrder = 1
-      object LbNomePrograma: TLabel
+      object LblNomePrograma: TLabel
         Left = 0
         Top = 0
         Width = 673
@@ -287,7 +161,6 @@ object FrmPrincipal: TFrmPrincipal
       Color = -1
       ParentBackground = False
       TabOrder = 2
-      ExplicitTop = 32
     end
   end
   object PnlPrograma: TPanel
@@ -304,7 +177,5 @@ object FrmPrincipal: TFrmPrincipal
     Color = clWhite
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 101
-    ExplicitHeight = 371
   end
 end

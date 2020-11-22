@@ -4,8 +4,8 @@ object FrmEstatisticas: TFrmEstatisticas
   Align = alClient
   BorderStyle = bsNone
   Caption = 'FrmEstatisticas'
-  ClientHeight = 338
-  ClientWidth = 651
+  ClientHeight = 484
+  ClientWidth = 668
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,12 +15,59 @@ object FrmEstatisticas: TFrmEstatisticas
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Panel1: TPanel
-    Left = 224
-    Top = 128
-    Width = 185
-    Height = 41
-    Caption = 'Estatisticas'
+  object PnlPrograma: TPanel
+    Left = 0
+    Top = 0
+    Width = 668
+    Height = 484
+    Margins.Left = 1
+    Margins.Top = 4
+    Margins.Right = 1
+    Margins.Bottom = 1
+    Align = alClient
+    BevelOuter = bvNone
+    Color = clWhite
+    ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 645
+    ExplicitHeight = 338
+    object LblSelectPais: TLabel
+      Left = 104
+      Top = 32
+      Width = 162
+      Height = 24
+      Caption = 'Selecione o Pa'#237's'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 7366145
+      Font.Height = -20
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object CmbPais: TComboBox
+      Left = 120
+      Top = 72
+      Width = 313
+      Height = 26
+      Color = 15067885
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 7366144
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      Text = 'Selecione'
+    end
+    object Panel1: TPanel
+      Left = 120
+      Top = 149
+      Width = 313
+      Height = 220
+      BevelOuter = bvNone
+      Color = 15067885
+      ParentBackground = False
+      TabOrder = 1
+    end
   end
 end

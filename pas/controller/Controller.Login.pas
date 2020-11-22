@@ -73,7 +73,7 @@ end;
 
 procedure TControllerLogin.LoginClick(Sender: TObject);
 begin
-  if (oFrmLogin.EdtNomeUsuario.Text = EmptyStr) and (oFrmLogin.EdtSenha.Text = EmptyStr) then
+  if (oFrmLogin.EdtNomeUsuario.Text = EmptyStr) or (oFrmLogin.EdtSenha.Text = EmptyStr) then
   begin
     oFrmLogin.lblStatus.Caption := '*Preencha todos os campos.';
     oFrmLogin.lblStatus.Visible := True;

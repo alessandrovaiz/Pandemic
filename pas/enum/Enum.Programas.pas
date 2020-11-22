@@ -13,6 +13,7 @@ type
   public
     function GetName: String;
     function GetCaption: String;
+    function GetDescricaoPrograma: String;
     function GetControladorPrograma: IControllerProgramaMenu;
   end;
 
@@ -78,6 +79,23 @@ begin
       Result := TControllerProgramaMenuAjuda.Create;
   else
     raise Exception.Create('Factory do controlador não definido!');
+  end;
+end;
+
+function THelperEnumProgramas.GetDescricaoPrograma: String;
+begin
+  Result := EmptyStr;
+  case Self of
+    tpPEP:
+      Result := 'Prontuário Eletrônico do Paciente';
+    tpCadastros:
+      Result := 'Cadastros';
+    tpRelatorios:
+      Result := 'Relatórios';
+    tpEstatisticas:
+      Result := 'Estatísticas';
+    tpAjuda:
+      Result := 'Ajuda';
   end;
 end;
 

@@ -44,7 +44,8 @@ type
 implementation
 
 uses
-  Vcl.Graphics;
+  Vcl.Graphics,
+  SysUtils;
 
 { TProgramaMenu }
 
@@ -71,12 +72,14 @@ begin
   begin
     PanelMenuPrograma.Color := $00706601;
     BotaoMenuPrograma.Font.Color := clWhite;
+    LabellTituloPrograma.Caption := Programa.GetDescricaoPrograma;
     Controlador.Show;
   end
   else
   begin
     PanelMenuPrograma.Color := $00E4EAED;
     BotaoMenuPrograma.Font.Color := $00706601;
+    LabellTituloPrograma.Caption := EmptyStr;
     Controlador.Hide;
   end;
 end;

@@ -1,8 +1,8 @@
-object frmPrincipal: TfrmPrincipal
+object FrmPrincipal: TFrmPrincipal
   Left = 0
   Top = 0
   Caption = 'Pandemic'
-  ClientHeight = 299
+  ClientHeight = 319
   ClientWidth = 635
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -11,6 +11,7 @@ object frmPrincipal: TfrmPrincipal
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 13
 end

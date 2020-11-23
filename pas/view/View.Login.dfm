@@ -46,10 +46,6 @@ object FrmLogin: TFrmLogin
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 2
-      ExplicitWidth = 765
-      ExplicitHeight = 485
       DesignSize = (
         767
         484)
@@ -151,7 +147,6 @@ object FrmLogin: TFrmLogin
         Color = 14151071
         ParentBackground = False
         TabOrder = 4
-        ExplicitHeight = 489
         object LblLogin: TLabel
           Left = 72
           Top = 411
@@ -1112,7 +1107,7 @@ object FrmLogin: TFrmLogin
             CharCase = ecLowerCase
             Color = 14079702
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = 15790320
+            Font.Color = 7366145
             Font.Height = -13
             Font.Name = 'Arial'
             Font.Style = [fsBold]
@@ -1163,7 +1158,7 @@ object FrmLogin: TFrmLogin
             CharCase = ecLowerCase
             Color = 14079702
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = 15790320
+            Font.Color = 7366145
             Font.Height = -13
             Font.Name = 'Arial'
             Font.Style = [fsBold]

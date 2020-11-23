@@ -18,6 +18,7 @@ type
 
     { Eventos Formulario }
     procedure BtnSairClick(Sender: TObject);
+    procedure BtnItemMenuClick(Sender: TObject);
   public
     procedure Show; override;
 
@@ -36,6 +37,16 @@ uses
   Vcl.Graphics;
 
 { TControllerPrincipal }
+
+procedure TControllerPrincipal.BtnItemMenuClick(Sender: TObject);
+var
+  oEPrograma: TEnumProgramas;
+begin
+  oEPrograma := TEnumProgramas(TSpeedButton(Sender).Tag);
+
+  if (oEPrograma <> tpNenhum) then
+    oListaProgramaMenu.MostrarPrograma(oEPrograma);
+end;
 
 procedure TControllerPrincipal.BtnSairClick(Sender: TObject);
 begin
@@ -90,6 +101,8 @@ procedure TControllerPrincipal.MontarMenu;
     Result.Font.Name := 'Segoe UI';
     Result.Font.Style := [fsBold];
     Result.ParentFont := False;
+    Result.Tag := Integer(APrograma);
+    Result.OnClick := BtnItemMenuClick;
     Result.BringToFront;
   end;
 
@@ -99,9 +112,8 @@ var
 begin
   for oEPrograma in TClassEnumProgramas.GetProgramasPorPermissao(oSingletonUsuario.PermissaoUsuario) do
   begin
-    oProgramaMenu := TProgramaMenu.Create(oListaProgramaMenu);
+    oProgramaMenu := TProgramaMenu.Create;
     oProgramaMenu.Programa := oEPrograma;
-    oProgramaMenu.PanelPrograma := oFrmView.PnlPrograma;
     oProgramaMenu.PanelMenuPrograma := GetPanelMenu(oEPrograma);
     oProgramaMenu.BotaoMenuPrograma := GetBotaoMenu(oEPrograma, oProgramaMenu.PanelMenuPrograma);
     oProgramaMenu.LabellTituloPrograma := oFrmView.LblNomePrograma;

@@ -7,38 +7,24 @@ uses
   Generics.Collections, Vcl.Buttons;
 
 type
-  TProgramaMenuBase = class
+  TProgramaMenu = class
   protected
-    fBotaoMenuPrograma: TSpeedButton;
+
     function GetSelecionado: Boolean;
     procedure SetSelecionado(const ASelecionado: Boolean);
-
-    procedure SetBotaoMenu(const ABotaoMenuPrograma: TSpeedButton);
-
-    procedure BotaoMenuClick(Sender: TObject); virtual;
   public
     Programa: TEnumProgramas;
     Controlador: IControllerProgramaMenu;
-    PanelPrograma: TPanel;
     PanelMenuPrograma: TPanel;
     LabellTituloPrograma: TLabel;
-    property BotaoMenuPrograma: TSpeedButton read fBotaoMenuPrograma write SetBotaoMenu;
+    BotaoMenuPrograma: TSpeedButton;
     property Selecionado: Boolean read GetSelecionado write SetSelecionado;
   end;
 
-  TListaProgramaMenu = class(TObjectList<TProgramaMenuBase>)
+  TListaProgramaMenu = class(TObjectList<TProgramaMenu>)
   public
     procedure DesmarcarTodosOsProgramas;
     procedure MostrarPrograma(const APrograma: TEnumProgramas);
-  end;
-
-  TProgramaMenu = class(TProgramaMenuBase)
-  strict private
-    oListaProgramaMenu: TListaProgramaMenu;
-  protected
-    procedure BotaoMenuClick(Sender: TObject); override;
-  public
-    constructor Create(const AListaProgramaMenu: TListaProgramaMenu);
   end;
 
 implementation
@@ -49,24 +35,12 @@ uses
 
 { TProgramaMenu }
 
-procedure TProgramaMenuBase.BotaoMenuClick(Sender: TObject);
-begin
-  Controlador.Show;
-  Self.Selecionado := True;
-end;
-
-function TProgramaMenuBase.GetSelecionado: Boolean;
+function TProgramaMenu.GetSelecionado: Boolean;
 begin
   Result := PanelMenuPrograma.Color = $00706601;
 end;
 
-procedure TProgramaMenuBase.SetBotaoMenu(const ABotaoMenuPrograma: TSpeedButton);
-begin
-  fBotaoMenuPrograma := ABotaoMenuPrograma;
-  fBotaoMenuPrograma.OnClick := BotaoMenuClick;
-end;
-
-procedure TProgramaMenuBase.SetSelecionado(const ASelecionado: Boolean);
+procedure TProgramaMenu.SetSelecionado(const ASelecionado: Boolean);
 begin
   if (ASelecionado) then
   begin
@@ -84,24 +58,11 @@ begin
   end;
 end;
 
-{ TProgramaMenu }
-
-procedure TProgramaMenu.BotaoMenuClick(Sender: TObject);
-begin
-  oListaProgramaMenu.DesmarcarTodosOsProgramas;
-  inherited;
-end;
-
-constructor TProgramaMenu.Create(const AListaProgramaMenu: TListaProgramaMenu);
-begin
-  oListaProgramaMenu := AListaProgramaMenu;
-end;
-
 { TListaProgramaMenu }
 
 procedure TListaProgramaMenu.DesmarcarTodosOsProgramas;
 var
-  oPrograma: TProgramaMenuBase;
+  oPrograma: TProgramaMenu;
 begin
   for oPrograma in Self do
   begin
@@ -111,7 +72,7 @@ end;
 
 procedure TListaProgramaMenu.MostrarPrograma(const APrograma: TEnumProgramas);
 var
-  oPrograma: TProgramaMenuBase;
+  oPrograma: TProgramaMenu;
 begin
   Self.DesmarcarTodosOsProgramas;
 

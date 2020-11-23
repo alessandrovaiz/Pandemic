@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
-  Vcl.Imaging.pngimage;
+  Vcl.Imaging.pngimage, Vcl.Buttons;
 
 type
   TFrmCadastro = class(TForm)
@@ -22,6 +22,11 @@ type
     PnlSintomas: TPanel;
     Label3: TLabel;
     Image4: TImage;
+    BtnSpeed: TSpeedButton;
+    btnOrientacoes: TSpeedButton;
+    BtnUsuarios: TSpeedButton;
+    BtnSintomas: TSpeedButton;
+    PnlPrimeiraFileira: TPanel;
   private
     { Private declarations }
   public

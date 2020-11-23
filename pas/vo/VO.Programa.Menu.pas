@@ -23,6 +23,8 @@ type
 
   TListaProgramaMenu = class(TObjectList<TProgramaMenu>)
   public
+    function ControladorAtivo: IControllerProgramaMenu;
+
     procedure DesmarcarTodosOsProgramas;
     procedure MostrarPrograma(const APrograma: TEnumProgramas);
   end;
@@ -59,6 +61,19 @@ begin
 end;
 
 { TListaProgramaMenu }
+
+function TListaProgramaMenu.ControladorAtivo: IControllerProgramaMenu;
+var
+  oPrograma: TProgramaMenu;
+begin
+  Result := nil;
+
+  for oPrograma in Self do
+  begin
+    if (oPrograma.Selecionado) then
+      Exit(oPrograma.Controlador)
+  end;
+end;
 
 procedure TListaProgramaMenu.DesmarcarTodosOsProgramas;
 var

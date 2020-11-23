@@ -5,24 +5,32 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.Actions, Vcl.ActnList, Vcl.Menus,
-  Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons, System.ImageList, Vcl.ImgList;
+  Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons, System.ImageList, Vcl.ImgList,
+  Vcl.Imaging.pngimage,
+  uFormBorderless;
 
 type
-  TFrmPrincipal = class(TForm)
+  TFrmPrincipal = class(TBorderlessForm)
     PnlMenu: TPanel;
     PnlHeader: TPanel;
     PnlPrograma: TPanel;
-    PnlHeaderMenu: TPanel;
-    LblLogin: TLabel;
     LblNomePrograma: TLabel;
     PnlNomePrograma: TPanel;
     PnlBordaHeade: TPanel;
     PnlSair: TPanel;
     BtnSair: TSpeedButton;
-  private
-    { Private declarations }
-  public
-    { Public declarations }
+    PnlHeaderMenu: TPanel;
+    LblNomeApp: TLabel;
+    PnlIconesMenu: TPanel;
+    PnlFechar: TPanel;
+    ImgFechar: TImage;
+    PnlMaximizar: TPanel;
+    ImgMaximizar: TImage;
+    PnlMinimizar: TPanel;
+    ImgMinimizar: TImage;
+    BtnFechar: TSpeedButton;
+    BtnMaximizar: TSpeedButton;
+    BtnMinimizar: TSpeedButton;
   end;
 
 implementation

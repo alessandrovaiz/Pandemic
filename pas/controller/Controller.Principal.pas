@@ -18,7 +18,10 @@ type
 
     { Eventos Formulario }
     procedure BtnSairClick(Sender: TObject);
+    procedure BtnMaximizarClick(Sender: TObject);
+    procedure BtnMinimizarClick(Sender: TObject);
     procedure BtnItemMenuClick(Sender: TObject);
+    procedure FormResize(Sender: TObject);
   public
     procedure Show; override;
 
@@ -34,7 +37,9 @@ uses
   Vcl.ExtCtrls,
   Vcl.Buttons,
   Vcl.Controls,
-  Vcl.Graphics;
+  Vcl.Graphics,
+  Enum.Margin,
+  Controller.Programa.Menu;
 
 { TControllerPrincipal }
 
@@ -46,6 +51,21 @@ begin
 
   if (oEPrograma <> tpNenhum) then
     oListaProgramaMenu.MostrarPrograma(oEPrograma);
+
+  FormResize(nil);
+end;
+
+procedure TControllerPrincipal.BtnMaximizarClick(Sender: TObject);
+begin
+  if (oFrmView.WindowState = wsNormal) then
+    oFrmView.WindowState := wsMaximized
+  else
+    oFrmView.WindowState := wsNormal;
+end;
+
+procedure TControllerPrincipal.BtnMinimizarClick(Sender: TObject);
+begin
+  Application.Minimize;
 end;
 
 procedure TControllerPrincipal.BtnSairClick(Sender: TObject);
@@ -58,6 +78,17 @@ begin
   Application.CreateForm(TFrmPrincipal, oFrmView);
 
   oFrmView.BtnSair.OnClick := BtnSairClick;
+  oFrmView.BtnFechar.OnClick := BtnSairClick;
+  oFrmView.BtnMaximizar.OnClick := oFrmView.MaximizeClick;
+
+  oFrmView.LblNomePrograma.OnDblClick := oFrmView.MaximizeClick;
+  oFrmView.LblNomeApp.OnDblClick := oFrmView.MaximizeClick;
+  oFrmView.LblNomePrograma.OnMouseDown := oFrmView.TitleBarMouseDown;
+  oFrmView.LblNomeApp.OnMouseDown := oFrmView.TitleBarMouseDown;
+
+  oFrmView.BtnMinimizar.OnClick := BtnMinimizarClick;
+
+  oFrmView.OnResize := FormResize;
   oListaProgramaMenu := TListaProgramaMenu.Create;
   MontarMenu;
 end;
@@ -66,6 +97,27 @@ destructor TControllerPrincipal.Destroy;
 begin
   oListaProgramaMenu.Free;
   inherited;
+end;
+
+procedure TControllerPrincipal.FormResize(Sender: TObject);
+var
+  oControllerAtivo: IControllerProgramaMenu;
+begin
+  oControllerAtivo := oListaProgramaMenu.ControladorAtivo;
+
+  if (not(Assigned(oControllerAtivo))) then
+    Exit;
+
+  if (oFrmView.PnlPrograma.Width > 675) or (oFrmView.PnlPrograma.Height > 423) then
+  begin
+    oControllerAtivo.SetMargin(tmgLeft, (oFrmView.PnlPrograma.Width - 675) div 2);
+    oControllerAtivo.SetMargin(tmgTop, (oFrmView.PnlPrograma.Height - 423) div 2);
+  end
+  else
+  begin
+    oControllerAtivo.SetMargin(tmgLeft, 0);
+    oControllerAtivo.SetMargin(tmgTop, 0);
+  end;
 end;
 
 procedure TControllerPrincipal.MontarMenu;

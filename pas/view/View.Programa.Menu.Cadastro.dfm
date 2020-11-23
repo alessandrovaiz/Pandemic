@@ -1,11 +1,16 @@
 ﻿object FrmCadastro: TFrmCadastro
+  AlignWithMargins = True
   Left = 0
   Top = 0
+  Margins.Left = 0
+  Margins.Top = 0
+  Margins.Right = 0
+  Margins.Bottom = 0
   Align = alClient
   BorderStyle = bsNone
   Caption = 'FrmCadastro'
-  ClientHeight = 338
-  ClientWidth = 651
+  ClientHeight = 423
+  ClientWidth = 675
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +23,8 @@
   object PnlPrograma: TPanel
     Left = 0
     Top = 0
-    Width = 651
-    Height = 338
+    Width = 675
+    Height = 423
     Margins.Left = 1
     Margins.Top = 4
     Margins.Right = 1
@@ -29,8 +34,7 @@
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 6
-    ExplicitTop = -6
+    ExplicitWidth = 810
     object PnlPacientes: TPanel
       Left = 64
       Top = 51

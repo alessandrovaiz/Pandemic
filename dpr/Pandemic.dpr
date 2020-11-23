@@ -2,8 +2,8 @@ program Pandemic;
 
 uses
   Vcl.Forms,
-  View.Principal in '..\pas\view\View.Principal.pas' {FrmPrincipal} ,
-  View.Login in '..\pas\view\View.Login.pas' {FrmLogin} ,
+  View.Principal in '..\pas\view\View.Principal.pas' {FrmPrincipal},
+  View.Login in '..\pas\view\View.Login.pas' {FrmLogin},
   Controller.Login in '..\pas\controller\Controller.Login.pas',
   Controller.Base in '..\pas\controller\Controller.Base.pas',
   Controller.Principal in '..\pas\controller\Controller.Principal.pas',
@@ -17,11 +17,13 @@ uses
   Controller.Programa.Menu.Estatistica in '..\pas\controller\Controller.Programa.Menu.Estatistica.pas',
   Controller.Programa.Menu.Ajuda in '..\pas\controller\Controller.Programa.Menu.Ajuda.pas',
   VO.Programa.Menu in '..\pas\vo\VO.Programa.Menu.pas',
-  View.Programa.Menu.PEP in '..\pas\view\View.Programa.Menu.PEP.pas' {FrmPEP} ,
-  View.Programa.Menu.Cadastro in '..\pas\view\View.Programa.Menu.Cadastro.pas' {FrmCadastro} ,
-  View.Programa.Menu.Relatorio in '..\pas\view\View.Programa.Menu.Relatorio.pas' {FrmRelatorio} ,
-  View.Programa.Menu.Estatisticas in '..\pas\view\View.Programa.Menu.Estatisticas.pas' {FrmEstatisticas} ,
-  View.Programa.Menu.Ajuda in '..\pas\view\View.Programa.Menu.Ajuda.pas' {FrmAjuda};
+  View.Programa.Menu.PEP in '..\pas\view\View.Programa.Menu.PEP.pas' {FrmPEP},
+  View.Programa.Menu.Cadastro in '..\pas\view\View.Programa.Menu.Cadastro.pas' {FrmCadastro},
+  View.Programa.Menu.Relatorio in '..\pas\view\View.Programa.Menu.Relatorio.pas' {FrmRelatorio},
+  View.Programa.Menu.Estatisticas in '..\pas\view\View.Programa.Menu.Estatisticas.pas' {FrmEstatisticas},
+  View.Programa.Menu.Ajuda in '..\pas\view\View.Programa.Menu.Ajuda.pas' {FrmAjuda},
+  Enum.Margin in '..\pas\enum\Enum.Margin.pas',
+  uFormBorderless in '..\pas\view\uFormBorderless.pas' {BorderlessForm};
 
 {$R *.res}
 
@@ -31,6 +33,7 @@ begin
   if (TControllerLogin.Create.Ref.Autenticar) then
     TControllerPrincipal.Create.Ref.Show;
 
+  Application.CreateForm(TBorderlessForm, BorderlessForm);
   Application.Run;
 
 end.

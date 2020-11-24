@@ -30,28 +30,23 @@ object FrmPrincipal: TFrmPrincipal
     Color = 15067885
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 2
-    ExplicitTop = 2
-    ExplicitWidth = 910
     object PnlNomePrograma: TPanel
       Left = 169
       Top = 0
-      Width = 599
+      Width = 745
       Height = 48
       Margins.Left = 1
       Margins.Top = 4
       Margins.Right = 1
       Margins.Bottom = 0
-      Align = alClient
       BevelOuter = bvNone
       Color = 15067885
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 595
       object LblNomePrograma: TLabel
         Left = 0
         Top = 0
-        Width = 599
+        Width = 745
         Height = 48
         Align = alClient
         Alignment = taCenter
@@ -66,9 +61,8 @@ object FrmPrincipal: TFrmPrincipal
         ParentFont = False
         Transparent = True
         Layout = tlCenter
-        ExplicitLeft = 3
-        ExplicitTop = -2
-        ExplicitWidth = 611
+        ExplicitWidth = 396
+        ExplicitHeight = 37
       end
     end
     object PnlBordaHeade: TPanel
@@ -85,7 +79,6 @@ object FrmPrincipal: TFrmPrincipal
       Color = -1
       ParentBackground = False
       TabOrder = 1
-      ExplicitWidth = 910
     end
     object PnlHeaderMenu: TPanel
       Left = 0
@@ -132,7 +125,6 @@ object FrmPrincipal: TFrmPrincipal
       Caption = 'PnlIconesMenu'
       ShowCaption = False
       TabOrder = 3
-      ExplicitLeft = 764
       object PnlFechar: TPanel
         Left = 96
         Top = 0
@@ -269,9 +261,6 @@ object FrmPrincipal: TFrmPrincipal
     Color = clWhite
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 2
-    ExplicitTop = 0
-    ExplicitHeight = 421
     DesignSize = (
       165
       419)
@@ -288,7 +277,6 @@ object FrmPrincipal: TFrmPrincipal
       Color = 15002349
       ParentBackground = False
       TabOrder = 0
-      ExplicitTop = 375
       object BtnSair: TSpeedButton
         Left = 0
         Top = 0
@@ -324,9 +312,5 @@ object FrmPrincipal: TFrmPrincipal
     Color = clWhite
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 0
-    ExplicitTop = 0
-    ExplicitWidth = 743
-    ExplicitHeight = 421
   end
 end

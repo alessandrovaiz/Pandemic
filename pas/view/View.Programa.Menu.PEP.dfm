@@ -1,4 +1,5 @@
 object FrmPEP: TFrmPEP
+  AlignWithMargins = True
   Left = 0
   Top = 0
   Align = alClient

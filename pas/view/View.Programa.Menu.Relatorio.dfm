@@ -1,11 +1,12 @@
 object FrmRelatorio: TFrmRelatorio
+  AlignWithMargins = True
   Left = 0
   Top = 0
   Align = alClient
   BorderStyle = bsNone
   Caption = 'FrmRelatorio'
-  ClientHeight = 456
-  ClientWidth = 748
+  ClientHeight = 423
+  ClientWidth = 675
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +19,8 @@ object FrmRelatorio: TFrmRelatorio
   object PnlPrograma: TPanel
     Left = 0
     Top = 0
-    Width = 748
-    Height = 456
+    Width = 675
+    Height = 423
     Margins.Left = 1
     Margins.Top = 4
     Margins.Right = 1
@@ -29,10 +30,11 @@ object FrmRelatorio: TFrmRelatorio
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = -6
+    ExplicitWidth = 748
+    ExplicitHeight = 456
     object Titulo: TLabel
-      Left = 217
-      Top = 32
+      Left = 271
+      Top = 24
       Width = 122
       Height = 19
       Caption = 'Casos de Covid'
@@ -44,8 +46,8 @@ object FrmRelatorio: TFrmRelatorio
       ParentFont = False
     end
     object LblSelectPais: TLabel
-      Left = 120
-      Top = 104
+      Left = 56
+      Top = 96
       Width = 162
       Height = 24
       Caption = 'Selecione o Pa'#237's'
@@ -57,8 +59,8 @@ object FrmRelatorio: TFrmRelatorio
       ParentFont = False
     end
     object LblSelectConsulta: TLabel
-      Left = 120
-      Top = 211
+      Left = 56
+      Top = 179
       Width = 187
       Height = 24
       Caption = 'Fazer consulta por'
@@ -70,9 +72,9 @@ object FrmRelatorio: TFrmRelatorio
       ParentFont = False
     end
     object CmbPais: TComboBox
-      Left = 136
-      Top = 144
-      Width = 313
+      Left = 56
+      Top = 126
+      Width = 553
       Height = 26
       Color = 15067885
       Font.Charset = DEFAULT_CHARSET
@@ -85,10 +87,10 @@ object FrmRelatorio: TFrmRelatorio
       Text = 'Selecione'
     end
     object Panel1: TPanel
-      Left = 120
-      Top = 249
-      Width = 273
-      Height = 72
+      Left = 48
+      Top = 209
+      Width = 170
+      Height = 32
       BevelOuter = bvNone
       Font.Charset = DEFAULT_CHARSET
       Font.Color = 7366144
@@ -99,7 +101,7 @@ object FrmRelatorio: TFrmRelatorio
       TabOrder = 1
       object LblCidade: TLabel
         Left = 38
-        Top = 9
+        Top = 3
         Width = 43
         Height = 16
         Caption = 'Cidade'
@@ -112,7 +114,7 @@ object FrmRelatorio: TFrmRelatorio
       end
       object LblRegiao: TLabel
         Left = 118
-        Top = 9
+        Top = 3
         Width = 44
         Height = 16
         Caption = 'Regi'#227'o'
@@ -125,23 +127,23 @@ object FrmRelatorio: TFrmRelatorio
       end
       object RdCidade: TRadioButton
         Left = 17
-        Top = 4
+        Top = 0
         Width = 15
         Height = 25
         TabOrder = 0
       end
       object RdRegiao: TRadioButton
         Left = 97
-        Top = 4
+        Top = 0
         Width = 15
         Height = 25
         TabOrder = 1
       end
     end
     object CmbConsulta: TComboBox
-      Left = 136
-      Top = 295
-      Width = 313
+      Left = 56
+      Top = 247
+      Width = 553
       Height = 26
       Color = 15067885
       Font.Charset = DEFAULT_CHARSET
@@ -156,8 +158,8 @@ object FrmRelatorio: TFrmRelatorio
       Text = 'Selecione'
     end
     object PnlBotao: TPanel
-      Left = 192
-      Top = 357
+      Left = 241
+      Top = 350
       Width = 185
       Height = 41
       BevelOuter = bvNone

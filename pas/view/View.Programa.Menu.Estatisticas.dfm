@@ -1,4 +1,5 @@
 object FrmEstatisticas: TFrmEstatisticas
+  AlignWithMargins = True
   Left = 0
   Top = 0
   Align = alClient
@@ -29,8 +30,6 @@ object FrmEstatisticas: TFrmEstatisticas
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 645
-    ExplicitHeight = 338
     object LblSelectPais: TLabel
       Left = 104
       Top = 32

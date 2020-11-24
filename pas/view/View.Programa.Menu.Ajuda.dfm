@@ -1,4 +1,5 @@
 object FrmAjuda: TFrmAjuda
+  AlignWithMargins = True
   Left = 0
   Top = 0
   Align = alClient
@@ -29,6 +30,5 @@ object FrmAjuda: TFrmAjuda
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = -6
   end
 end

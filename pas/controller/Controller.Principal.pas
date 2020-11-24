@@ -18,7 +18,6 @@ type
 
     { Eventos Formulario }
     procedure BtnSairClick(Sender: TObject);
-    procedure BtnMaximizarClick(Sender: TObject);
     procedure BtnMinimizarClick(Sender: TObject);
     procedure BtnItemMenuClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -53,14 +52,6 @@ begin
     oListaProgramaMenu.MostrarPrograma(oEPrograma);
 
   FormResize(nil);
-end;
-
-procedure TControllerPrincipal.BtnMaximizarClick(Sender: TObject);
-begin
-  if (oFrmView.WindowState = wsNormal) then
-    oFrmView.WindowState := wsMaximized
-  else
-    oFrmView.WindowState := wsNormal;
 end;
 
 procedure TControllerPrincipal.BtnMinimizarClick(Sender: TObject);
@@ -104,6 +95,8 @@ var
   oControllerAtivo: IControllerProgramaMenu;
 begin
   oControllerAtivo := oListaProgramaMenu.ControladorAtivo;
+
+  oFrmView.PnlNomePrograma.Width := oFrmView.Width - oFrmView.PnlHeaderMenu.Width;
 
   if (not(Assigned(oControllerAtivo))) then
     Exit;

@@ -80,37 +80,27 @@ begin
     oFrmLogin.lblStatus.Visible := True;
     Exit;
   end;
-      oFrmLogin.FDQlogin.SQL.Clear;
-      try
-        oFrmLogin.FDConnection1.Connected := true;
-        oFrmLogin.FDQlogin.SQL.Text:='SELECT  count(*) as counter FROM user WHERE ema_usr = ' +
-        QuotedStr(oFrmLogin.EdtNomeUsuario.Text) + 'AND pas_usr = ' +
-        QuotedStr(oFrmLogin.EdtSenha.Text) + ';';
 
-        if  oFrmLogin.FDQlogin.FieldByName('counter').AsInteger = 1 then
-        begin
-         ShowMessage('LOGADO');
-        end
-        else
-        begin
-          ShowMessage('Falha no login, try again');
-        end;
-        
-      finally
+  oFrmLogin.FDQlogin.SQL.Clear;
+  oFrmLogin.FDPhysPgDriverLink1.VendorHome := ExtractFileDir(Application.ExeName);
+  try
+    oFrmLogin.FDConnection.Connected := True;
+    oFrmLogin.FDQlogin.SQL.Text := 'SELECT  count(*) as counter FROM users WHERE ema_usr = ' + QuotedStr(oFrmLogin.EdtNomeUsuario.Text) + 'AND pas_usr = ' + QuotedStr(oFrmLogin.EdtSenha.Text) + ';';
+    oFrmLogin.FDQlogin.Active := True;
 
-      end;
-      
-  { Validar informacoes com o banco }
-  if (oFrmLogin.EdtNomeUsuario.Text = 'admin') and (oFrmLogin.EdtSenha.Text = 'admin') then
-  begin
-    oSingletonUsuario.IdUsuario := 1;
-    oSingletonUsuario.PermissaoUsuario := tpuAdministrador;
-    oFrmLogin.Close;
-  end
-  else
-  begin
-    oFrmLogin.lblStatus.Caption := '*Usúario ou senha inválida.';
-    oFrmLogin.lblStatus.Visible := True;
+    if oFrmLogin.FDQlogin.FieldByName('counter').AsInteger = 1 then
+    begin
+      oSingletonUsuario.IdUsuario := 1;
+      oSingletonUsuario.PermissaoUsuario := tpuAdministrador;
+      oFrmLogin.Close;
+    end
+    else
+    begin
+      oFrmLogin.lblStatus.Caption := '*Usúario ou senha inválida.';
+      oFrmLogin.lblStatus.Visible := True;
+    end;
+  finally
+    oFrmLogin.FDQlogin.Active := False;
   end;
 end;
 

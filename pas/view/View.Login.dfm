@@ -1230,4 +1230,21 @@ object FrmLogin: TFrmLogin
       end
     end
   end
+  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    VendorHome = 'C:\Users\alessandro\Documents\pandemic\database'
+    Left = 505
+    Top = 41
+  end
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'DriverID=PG')
+    LoginPrompt = False
+    Left = 425
+    Top = 41
+  end
+  object FDQlogin: TFDQuery
+    Connection = FDConnection1
+    Left = 601
+    Top = 41
+  end
 end

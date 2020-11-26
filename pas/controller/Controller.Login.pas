@@ -6,6 +6,7 @@ uses
   Vcl.Forms,
   View.Login,
   Classes,
+  Vcl.Dialogs,
   Windows;
 
 type
@@ -79,7 +80,26 @@ begin
     oFrmLogin.lblStatus.Visible := True;
     Exit;
   end;
+      oFrmLogin.FDQlogin.SQL.Clear;
+      try
+        oFrmLogin.FDConnection1.Connected := true;
+        oFrmLogin.FDQlogin.SQL.Text:='SELECT  count(*) as counter FROM user WHERE ema_usr = ' +
+        QuotedStr(oFrmLogin.EdtNomeUsuario.Text) + 'AND pas_usr = ' +
+        QuotedStr(oFrmLogin.EdtSenha.Text) + ';';
 
+        if  oFrmLogin.FDQlogin.FieldByName('counter').AsInteger = 1 then
+        begin
+         ShowMessage('LOGADO');
+        end
+        else
+        begin
+          ShowMessage('Falha no login, try again');
+        end;
+        
+      finally
+
+      end;
+      
   { Validar informacoes com o banco }
   if (oFrmLogin.EdtNomeUsuario.Text = 'admin') and (oFrmLogin.EdtSenha.Text = 'admin') then
   begin

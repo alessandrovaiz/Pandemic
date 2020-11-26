@@ -34,9 +34,9 @@ type
     EdtNomeUsuario: TEdit;
     PnlEdtSenha: TPanel;
     PnlFundo: TPanel;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
-    FDConnection1: TFDConnection;
     FDQlogin: TFDQuery;
+    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
+    FDConnection: TFDConnection;
   private
     { Private declarations }
   public

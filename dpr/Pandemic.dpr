@@ -24,16 +24,16 @@ uses
   View.Programa.Menu.Ajuda in '..\pas\view\View.Programa.Menu.Ajuda.pas' {FrmAjuda},
   Enum.Margin in '..\pas\enum\Enum.Margin.pas',
   uFormBorderless in '..\pas\view\uFormBorderless.pas' {BorderlessForm},
-  DMprincipal in '..\pas\dataModule\DMprincipal.pas' {DM: TDataModule};
+  DMprincipal in '..\pas\dataModule\DMprincipal.pas' {DM: TDataModule},
+  Controller.Cadastro.Paciente in '..\pas\controller\Controller.Cadastro.Paciente.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
 
-  Application.CreateForm(TDM,DM);
-
-  if (TControllerLogin.Create.Ref.Autenticar) then
+  ApApplication.CreateForm(TDM, DM);
+   (TControllerLogin.Create.Ref.Autenticar) then
     TControllerPrincipal.Create.Ref.Show;
 
   Application.CreateForm(TBorderlessForm, BorderlessForm);

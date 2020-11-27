@@ -46,6 +46,8 @@ object FrmLogin: TFrmLogin
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
+      ExplicitLeft = 2
+      ExplicitTop = 3
       DesignSize = (
         767
         484)
@@ -138,8 +140,8 @@ object FrmLogin: TFrmLogin
         ParentFont = False
       end
       object PnlImagem: TPanel
-        Left = 0
-        Top = -6
+        Left = -48
+        Top = -5
         Width = 343
         Height = 490
         Anchors = [akLeft, akTop, akBottom]
@@ -148,8 +150,8 @@ object FrmLogin: TFrmLogin
         ParentBackground = False
         TabOrder = 4
         object LblLogin: TLabel
-          Left = 72
-          Top = 411
+          Left = 97
+          Top = 406
           Width = 171
           Height = 54
           Caption = 'Pandemic'
@@ -163,8 +165,8 @@ object FrmLogin: TFrmLogin
           ParentFont = False
         end
         object ImgLogo: TImage
-          Left = 65
-          Top = 120
+          Left = 97
+          Top = 134
           Width = 191
           Height = 178
           AutoSize = True
@@ -1229,24 +1231,5 @@ object FrmLogin: TFrmLogin
         end
       end
     end
-  end
-  object FDQlogin: TFDQuery
-    Connection = FDConnection
-    Left = 225
-    Top = 41
-  end
-  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    Left = 144
-    Top = 40
-  end
-  object FDConnection: TFDConnection
-    Params.Strings = (
-      'Database=pandemic'
-      'User_Name=postgres'
-      'Password=1234'
-      'Port=5432'
-      'DriverID=PG')
-    Left = 56
-    Top = 40
   end
 end

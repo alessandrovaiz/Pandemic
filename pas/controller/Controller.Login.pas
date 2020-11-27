@@ -34,7 +34,8 @@ implementation
 uses
   System.SysUtils,
   Singleton.Usuario,
-  Enum.Permissao.Usuario;
+  Enum.Permissao.Usuario,
+  DMprincipal;
 
 { TControllerLogin }
 
@@ -81,14 +82,14 @@ begin
     Exit;
   end;
 
-  oFrmLogin.FDQlogin.SQL.Clear;
-  oFrmLogin.FDPhysPgDriverLink1.VendorHome := ExtractFileDir(Application.ExeName);
-  try
-    oFrmLogin.FDConnection.Connected := True;
-    oFrmLogin.FDQlogin.SQL.Text := 'SELECT  count(*) as counter FROM users WHERE ema_usr = ' + QuotedStr(oFrmLogin.EdtNomeUsuario.Text) + 'AND pas_usr = ' + QuotedStr(oFrmLogin.EdtSenha.Text) + ';';
-    oFrmLogin.FDQlogin.Active := True;
+  DM.FDQuery.SQL.Clear;
 
-    if oFrmLogin.FDQlogin.FieldByName('counter').AsInteger = 1 then
+  try
+
+    DM.FDQuery.SQL.Text := 'SELECT  count(*) as counter FROM users WHERE ema_usr = ' + QuotedStr(oFrmLogin.EdtNomeUsuario.Text) + 'AND pas_usr = ' + QuotedStr(oFrmLogin.EdtSenha.Text) + ';';
+    DM.FDQuery.Active := True;
+
+    if DM.FDQuery.FieldByName('counter').AsInteger = 1 then
     begin
       oSingletonUsuario.IdUsuario := 1;
       oSingletonUsuario.PermissaoUsuario := tpuAdministrador;
@@ -100,7 +101,7 @@ begin
       oFrmLogin.lblStatus.Visible := True;
     end;
   finally
-    oFrmLogin.FDQlogin.Active := False;
+    DM.FDQuery.Active := False;
   end;
 end;
 

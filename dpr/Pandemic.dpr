@@ -23,12 +23,15 @@ uses
   View.Programa.Menu.Estatisticas in '..\pas\view\View.Programa.Menu.Estatisticas.pas' {FrmEstatisticas},
   View.Programa.Menu.Ajuda in '..\pas\view\View.Programa.Menu.Ajuda.pas' {FrmAjuda},
   Enum.Margin in '..\pas\enum\Enum.Margin.pas',
-  uFormBorderless in '..\pas\view\uFormBorderless.pas' {BorderlessForm};
+  uFormBorderless in '..\pas\view\uFormBorderless.pas' {BorderlessForm},
+  DMprincipal in '..\pas\dataModule\DMprincipal.pas' {DM: TDataModule};
 
 {$R *.res}
 
 begin
   Application.Initialize;
+
+  Application.CreateForm(TDM,DM);
 
   if (TControllerLogin.Create.Ref.Autenticar) then
     TControllerPrincipal.Create.Ref.Show;

@@ -35,7 +35,7 @@ uses
   System.SysUtils,
   Singleton.Usuario,
   Enum.Permissao.Usuario,
-  DMprincipal;
+  DM.Principal;
 
 { TControllerLogin }
 
@@ -82,14 +82,13 @@ begin
     Exit;
   end;
 
-  DM.FDQuery.SQL.Clear;
+  DMPrincipal.FDQuery.SQL.Clear;
 
   try
+    DMPrincipal.FDQuery.SQL.Text := 'SELECT  count(*) as counter FROM users WHERE ema_usr = ' + QuotedStr(oFrmLogin.EdtNomeUsuario.Text) + 'AND pas_usr = ' + QuotedStr(oFrmLogin.EdtSenha.Text) + ';';
+    DMPrincipal.FDQuery.Active := True;
 
-    DM.FDQuery.SQL.Text := 'SELECT  count(*) as counter FROM users WHERE ema_usr = ' + QuotedStr(oFrmLogin.EdtNomeUsuario.Text) + 'AND pas_usr = ' + QuotedStr(oFrmLogin.EdtSenha.Text) + ';';
-    DM.FDQuery.Active := True;
-
-    if DM.FDQuery.FieldByName('counter').AsInteger = 1 then
+    if DMPrincipal.FDQuery.FieldByName('counter').AsInteger = 1 then
     begin
       oSingletonUsuario.IdUsuario := 1;
       oSingletonUsuario.PermissaoUsuario := tpuAdministrador;
@@ -101,7 +100,7 @@ begin
       oFrmLogin.lblStatus.Visible := True;
     end;
   finally
-    DM.FDQuery.Active := False;
+    DMPrincipal.FDQuery.Active := False;
   end;
 end;
 

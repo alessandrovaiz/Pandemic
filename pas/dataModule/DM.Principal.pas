@@ -1,4 +1,4 @@
-unit DMprincipal;
+unit DM.Principal;
 
 interface
 
@@ -12,7 +12,7 @@ uses
   FireDAC.Comp.DataSet;
 
 type
-  TDM = class(TDataModule)
+  TDMPrincipal = class(TDataModule)
     FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     FDQuery: TFDQuery;
     FDConnection: TFDConnection;
@@ -25,20 +25,20 @@ type
   end;
 
 var
-  DM: TDM;
+  DMPrincipal: TDMPrincipal;
 
 implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 {$R *.dfm}
 
-procedure TDM.DataModuleCreate(Sender: TObject);
+procedure TDMPrincipal.DataModuleCreate(Sender: TObject);
 begin
   FDPhysPgDriverLink1.VendorHome := ExtractFileDir(Application.ExeName);
   FDConnection.Connected := True;
 end;
 
-procedure TDM.DataModuleDestroy(Sender: TObject);
+procedure TDMPrincipal.DataModuleDestroy(Sender: TObject);
 begin
   FDConnection.Connected := False;
 end;

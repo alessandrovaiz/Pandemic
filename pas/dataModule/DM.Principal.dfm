@@ -1,4 +1,4 @@
-object DM: TDM
+object DMPrincipal: TDMPrincipal
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
@@ -17,7 +17,7 @@ object DM: TDM
     Params.Strings = (
       'Database=pandemic'
       'User_Name=postgres'
-      'Password=masterkey'
+      'Password=1234'
       'DriverID=PG')
     Left = 128
     Top = 40

@@ -144,8 +144,8 @@
             <Form>BorderlessForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\dataModule\DMprincipal.pas">
-            <Form>DM</Form>
+        <DCCReference Include="..\pas\dataModule\DM.Principal.pas">
+            <Form>DMPrincipal</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>

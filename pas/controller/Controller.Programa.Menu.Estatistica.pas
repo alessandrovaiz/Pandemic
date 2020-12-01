@@ -39,7 +39,7 @@ var
   oResponseJSONArray: TJSONArray;
   oArrayElement: TJSONValue;
 begin
-  oFrmView.PnlInformacoes.Visible := False;ad
+  oFrmView.PnlInformacoes.Visible := False;
   oFrmView.RESTClient1.BaseURL := API_URL + '/countries';
   oFrmView.RESTRequest1.Params.Clear;
   oFrmView.RESTRequest1.Resource := '';

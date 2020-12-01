@@ -9,7 +9,7 @@ object FrmEstatisticas: TFrmEstatisticas
   Align = alClient
   BorderStyle = bsNone
   Caption = 'FrmEstatisticas'
-  ClientHeight = 423
+  ClientHeight = 494
   ClientWidth = 675
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -25,7 +25,7 @@ object FrmEstatisticas: TFrmEstatisticas
     Left = 0
     Top = 0
     Width = 675
-    Height = 423
+    Height = 494
     Margins.Left = 1
     Margins.Top = 4
     Margins.Right = 1
@@ -35,14 +35,13 @@ object FrmEstatisticas: TFrmEstatisticas
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 668
-    ExplicitHeight = 484
+    ExplicitHeight = 423
     object PnlInformacoes: TPanel
       AlignWithMargins = True
       Left = 30
       Top = 107
       Width = 615
-      Height = 266
+      Height = 337
       Margins.Left = 30
       Margins.Top = 10
       Margins.Right = 30
@@ -52,8 +51,7 @@ object FrmEstatisticas: TFrmEstatisticas
       Color = 15067885
       ParentBackground = False
       TabOrder = 0
-      ExplicitTop = 98
-      ExplicitHeight = 348
+      ExplicitHeight = 266
       object LblPais: TLabel
         Left = 27
         Top = 13
@@ -73,7 +71,7 @@ object FrmEstatisticas: TFrmEstatisticas
       end
       object LblAtualizado: TLabel
         Left = 43
-        Top = 189
+        Top = 216
         Width = 301
         Height = 28
         Margins.Left = 40
@@ -90,7 +88,7 @@ object FrmEstatisticas: TFrmEstatisticas
       end
       object Label2: TLabel
         Left = 43
-        Top = 222
+        Top = 249
         Width = 280
         Height = 28
         Margins.Left = 40
@@ -124,7 +122,7 @@ object FrmEstatisticas: TFrmEstatisticas
       end
       object PnlLinha: TPanel
         Left = 27
-        Top = 180
+        Top = 207
         Width = 558
         Height = 2
         BevelOuter = bvNone
@@ -147,7 +145,6 @@ object FrmEstatisticas: TFrmEstatisticas
       ShowCaption = False
       ShowHint = False
       TabOrder = 1
-      ExplicitWidth = 668
       object Label1: TLabel
         Left = 30
         Top = 21

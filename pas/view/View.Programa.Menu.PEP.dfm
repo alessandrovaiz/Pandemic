@@ -5,7 +5,7 @@ object FrmPEP: TFrmPEP
   Align = alClient
   BorderStyle = bsNone
   Caption = 'FrmPEP'
-  ClientHeight = 338
+  ClientHeight = 494
   ClientWidth = 651
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET

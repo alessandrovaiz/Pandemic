@@ -5,7 +5,7 @@ object FrmAjuda: TFrmAjuda
   Align = alClient
   BorderStyle = bsNone
   Caption = 'FrmAjuda'
-  ClientHeight = 462
+  ClientHeight = 494
   ClientWidth = 744
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -20,7 +20,7 @@ object FrmAjuda: TFrmAjuda
     Left = 0
     Top = 0
     Width = 744
-    Height = 462
+    Height = 494
     Margins.Left = 1
     Margins.Top = 4
     Margins.Right = 1
@@ -30,5 +30,6 @@ object FrmAjuda: TFrmAjuda
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
+    ExplicitHeight = 462
   end
 end

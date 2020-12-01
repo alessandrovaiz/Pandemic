@@ -5,7 +5,7 @@ object FrmRelatorio: TFrmRelatorio
   Align = alClient
   BorderStyle = bsNone
   Caption = 'FrmRelatorio'
-  ClientHeight = 423
+  ClientHeight = 494
   ClientWidth = 675
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -20,7 +20,7 @@ object FrmRelatorio: TFrmRelatorio
     Left = 0
     Top = 0
     Width = 675
-    Height = 423
+    Height = 494
     Margins.Left = 1
     Margins.Top = 4
     Margins.Right = 1
@@ -30,8 +30,7 @@ object FrmRelatorio: TFrmRelatorio
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 748
-    ExplicitHeight = 456
+    ExplicitHeight = 423
     object Titulo: TLabel
       Left = 271
       Top = 24

@@ -9,7 +9,7 @@
   Align = alClient
   BorderStyle = bsNone
   Caption = 'FrmCadastro'
-  ClientHeight = 423
+  ClientHeight = 494
   ClientWidth = 675
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -24,7 +24,7 @@
     Left = 0
     Top = 0
     Width = 675
-    Height = 423
+    Height = 494
     Margins.Left = 1
     Margins.Top = 4
     Margins.Right = 1
@@ -36,10 +36,10 @@
     TabOrder = 0
     DesignSize = (
       675
-      423)
+      494)
     object PnlPrimeiraFileira: TPanel
       Left = 0
-      Top = 40
+      Top = 55
       Width = 675
       Height = 94
       Anchors = [akLeft, akRight]
@@ -62,7 +62,6 @@
         Color = 15067885
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 192
         object Label1: TLabel
           Left = 15
           Top = 64
@@ -155,7 +154,6 @@
         Color = 15067885
         ParentBackground = False
         TabOrder = 1
-        ExplicitLeft = 64
         object Titulo: TLabel
           Left = 23
           Top = 64
@@ -220,7 +218,7 @@
             267355E6C93FB34F5DBEC33E55F90F2625A35A65AB6EC50000000049454E44AE
             426082}
         end
-        object BtnSpeed: TSpeedButton
+        object BtnPacientes: TSpeedButton
           Left = 0
           Top = 0
           Width = 105
@@ -248,7 +246,6 @@
         Color = 15067885
         ParentBackground = False
         TabOrder = 2
-        ExplicitLeft = 448
         object Label3: TLabel
           Left = 23
           Top = 64
@@ -341,7 +338,6 @@
         Color = 15067885
         ParentBackground = False
         TabOrder = 3
-        ExplicitLeft = 320
         object Label2: TLabel
           Left = 23
           Top = 64

@@ -18,11 +18,13 @@ type
 
     function Height: Integer;
     function Width: Integer;
+    function GetControladorFilho: IControllerProgramaMenu;
   end;
 
   TControllerProgramaMenu<T: TForm> = class(TInterfacedObject, IControllerProgramaMenu)
   protected
     oFrmView: T;
+    oControladorFilho: IControllerProgramaMenu;
   public
     procedure SetParent(const AParent: TWinControl);
     procedure SetHeight(const AHeight: Integer);
@@ -34,6 +36,7 @@ type
 
     function Height: Integer;
     function Width: Integer;
+    function GetControladorFilho: IControllerProgramaMenu;
 
     destructor Destroy; override;
   end;
@@ -48,6 +51,11 @@ begin
   inherited;
 end;
 
+function TControllerProgramaMenu<T>.GetControladorFilho: IControllerProgramaMenu;
+begin
+  Result := oControladorFilho;
+end;
+
 function TControllerProgramaMenu<T>.Height: Integer;
 begin
   Result := oFrmView.Height;
@@ -55,6 +63,12 @@ end;
 
 procedure TControllerProgramaMenu<T>.Hide;
 begin
+  if (Assigned(oControladorFilho)) then
+  begin
+    oControladorFilho.Hide;
+    oControladorFilho := Nil;
+  end;
+
   oFrmView.Hide;
 end;
 
@@ -89,6 +103,12 @@ end;
 
 procedure TControllerProgramaMenu<T>.Show;
 begin
+  if (Assigned(oControladorFilho)) then
+  begin
+    oControladorFilho.Hide;
+    oControladorFilho := Nil;
+  end;
+
   oFrmView.Show;
 end;
 

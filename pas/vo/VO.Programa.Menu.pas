@@ -33,7 +33,8 @@ implementation
 
 uses
   Vcl.Graphics,
-  SysUtils;
+  SysUtils,
+  Utils.Generics;
 
 { TProgramaMenu }
 
@@ -71,7 +72,7 @@ begin
   for oPrograma in Self do
   begin
     if (oPrograma.Selecionado) then
-      Exit(oPrograma.Controlador)
+      Exit(TUtilsGenerics.IfThen<IControllerProgramaMenu>(Assigned(oPrograma.Controlador.GetControladorFilho), oPrograma.Controlador.GetControladorFilho, oPrograma.Controlador));
   end;
 end;
 

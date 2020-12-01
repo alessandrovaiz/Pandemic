@@ -22,7 +22,7 @@ type
     PnlSintomas: TPanel;
     Label3: TLabel;
     Image4: TImage;
-    BtnSpeed: TSpeedButton;
+    BtnPacientes: TSpeedButton;
     btnOrientacoes: TSpeedButton;
     BtnUsuarios: TSpeedButton;
     BtnSintomas: TSpeedButton;

@@ -3,7 +3,7 @@ unit Enum.Margin;
 interface
 
 type
-  TEnumMargin = (tmgNenhum, tmgLeft, tmgRight, tmgTop);
+  TEnumMargin = (tmgNenhum, tmgLeft, tmgRight, tmgTop, tmgBot);
 
 implementation
 

@@ -72,6 +72,8 @@ begin
       oFrmView.Margins.Right := ATamanho;
     tmgTop:
       oFrmView.Margins.Top := ATamanho;
+    tmgBot:
+      oFrmView.Margins.Bottom := ATamanho;
   end;
 end;
 

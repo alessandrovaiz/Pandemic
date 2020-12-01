@@ -101,15 +101,19 @@ begin
   if (not(Assigned(oControllerAtivo))) then
     Exit;
 
-  if (oFrmView.PnlPrograma.Width > 675) or (oFrmView.PnlPrograma.Height > 423) then
+  if (oFrmView.PnlPrograma.Width > 675) or (oFrmView.PnlPrograma.Height > 453) then
   begin
-    oControllerAtivo.SetMargin(tmgLeft, (oFrmView.PnlPrograma.Width - 675) div 2);
-    oControllerAtivo.SetMargin(tmgTop, (oFrmView.PnlPrograma.Height - 423) div 2);
+    oControllerAtivo.SetMargin(tmgLeft, (oFrmView.PnlPrograma.ClientWidth - 675) div 2);
+    oControllerAtivo.SetMargin(tmgRight, (oFrmView.PnlPrograma.ClientWidth - 675) div 2);
+    oControllerAtivo.SetMargin(tmgTop, (oFrmView.PnlPrograma.ClientHeight - 453) div 2);
+    oControllerAtivo.SetMargin(tmgBot, (oFrmView.PnlPrograma.ClientHeight - 453) div 2);
   end
   else
   begin
     oControllerAtivo.SetMargin(tmgLeft, 0);
+    oControllerAtivo.SetMargin(tmgRight, 0);
     oControllerAtivo.SetMargin(tmgTop, 0);
+    oControllerAtivo.SetMargin(tmgBot, 0);
   end;
 end;
 

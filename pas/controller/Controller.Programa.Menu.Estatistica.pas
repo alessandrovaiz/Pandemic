@@ -11,9 +11,9 @@ type
   TControllerProgramaMenuEstatistica = class(TControllerProgramaMenu<TFrmEstatisticas>)
   private
     procedure AlimentarComboBoxPaises;
-    procedure ConsumirAPI;
 
     procedure FormShow(Sender: TObject);
+    procedure ProcurarClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   public
     constructor Create;
@@ -63,7 +63,7 @@ begin
   end;
 end;
 
-procedure TControllerProgramaMenuEstatistica.ConsumirAPI;
+procedure TControllerProgramaMenuEstatistica.ProcurarClick(Sender: TObject);
 var
   oResponseJSON, oResponseJSONData: TJSONValue;
 begin
@@ -103,12 +103,13 @@ begin
   oFrmView.OnShow := FormShow;
   oFrmView.OnKeyDown := FormKeyDown;
   oFrmView.PnlInformacoes.Visible := False;
+  oFrmView.BtnOk.OnClick := ProcurarClick;
 end;
 
 procedure TControllerProgramaMenuEstatistica.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
   if (Key = VK_RETURN) then
-    ConsumirAPI;
+    oFrmView.BtnOk.Click;
 end;
 
 procedure TControllerProgramaMenuEstatistica.FormShow(Sender: TObject);

@@ -30,7 +30,6 @@ type
     EdtEndereco: TEdit;
     Label11: TLabel;
     Label12: TLabel;
-    ScrollBar1: TScrollBar;
     PnlSintomas: TPanel;
     PnlScrollSintomas: TPanel;
     Label13: TLabel;

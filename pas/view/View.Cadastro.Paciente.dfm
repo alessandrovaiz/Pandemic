@@ -247,7 +247,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
     end
     object Label13: TLabel [11]
       Left = 32
-      Top = 318
+      Top = 306
       Width = 99
       Height = 17
       ParentCustomHint = False
@@ -269,7 +269,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
     end
     object Label14: TLabel [12]
       Left = 32
-      Top = 366
+      Top = 354
       Width = 35
       Height = 17
       ParentCustomHint = False
@@ -294,10 +294,6 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       inherited LblCadastro: TLabel
         Width = 487
         Height = 33
-        ExplicitLeft = 91
-        ExplicitTop = -3
-        ExplicitWidth = 487
-        ExplicitHeight = 33
       end
     end
     inherited PnlBotao: TPanel
@@ -390,37 +386,29 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       Caption = 'PnlScrollSintomas'
       ShowCaption = False
       TabOrder = 10
-      object ScrollBar1: TScrollBar
-        Left = 0
-        Top = 41
-        Width = 609
-        Height = 17
-        Align = alBottom
-        PageSize = 0
-        TabOrder = 0
-      end
       object PnlSintomas: TPanel
         Left = 0
         Top = 0
         Width = 609
-        Height = 41
+        Height = 58
         Align = alClient
         BevelOuter = bvNone
         Caption = 'PnlSintomas'
         ShowCaption = False
-        TabOrder = 1
+        TabOrder = 0
+        ExplicitHeight = 41
       end
     end
     object EdtChaveAcesso: TEdit
       Left = 32
-      Top = 341
+      Top = 329
       Width = 272
       Height = 21
       TabOrder = 11
     end
     object EdtSenha: TEdit
       Left = 32
-      Top = 389
+      Top = 377
       Width = 272
       Height = 21
       TabOrder = 12

@@ -134,6 +134,7 @@ begin
   OnResize(oFrmView);
   SetColorParent;
   oFrmView.Show;
+  oFrmView.SetFocus;
 end;
 
 function TControllerProgramaMenu<T>.Width: Integer;

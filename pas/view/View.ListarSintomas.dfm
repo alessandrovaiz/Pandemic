@@ -10,7 +10,7 @@ inherited FrmListarSintomas: TFrmListarSintomas
         Width = 720
         Height = 29
         Caption = 'Sintomas'
-        ExplicitWidth = 720
+        ExplicitWidth = 65
       end
     end
     inherited PnlIconesMenu: TPanel
@@ -28,6 +28,7 @@ inherited FrmListarSintomas: TFrmListarSintomas
     inherited PnlBotoes: TPanel
       inherited PnlBotao: TPanel
         inherited BtnOk: TSpeedButton
+          Caption = 'SELECIONAR'
           OnClick = BtnOkClick
         end
       end
@@ -45,7 +46,7 @@ inherited FrmListarSintomas: TFrmListarSintomas
         Expanded = False
         FieldName = 'des_sym'
         Title.Caption = 'Descri'#231#227'o'
-        Width = 670
+        Width = 653
         Visible = True
       end>
   end

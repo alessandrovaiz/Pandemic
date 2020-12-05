@@ -290,40 +290,49 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       Layout = tlCenter
     end
     inherited PnlNavBar: TPanel
+      TabOrder = 13
       inherited LblCadastro: TLabel
+        Width = 487
+        Height = 33
         ExplicitLeft = 91
         ExplicitTop = -3
         ExplicitWidth = 487
         ExplicitHeight = 33
       end
     end
+    inherited PnlBotao: TPanel
+      TabOrder = 14
+    end
+    inherited PnlCancelar: TPanel
+      TabOrder = 15
+    end
     object EdtNome: TEdit
       Left = 32
       Top = 61
       Width = 609
       Height = 21
-      TabOrder = 1
+      TabOrder = 0
     end
     object EdtIdade: TEdit
       Left = 32
       Top = 110
       Width = 57
       Height = 21
-      TabOrder = 2
+      TabOrder = 1
     end
     object EdtTelefone: TEdit
       Left = 94
       Top = 110
       Width = 210
       Height = 21
-      TabOrder = 3
+      TabOrder = 2
     end
     object CmbSexo: TComboBox
       Left = 335
       Top = 110
       Width = 114
       Height = 21
-      TabOrder = 4
+      TabOrder = 3
       Items.Strings = (
         'Masculino'
         'Feminino')
@@ -335,42 +344,42 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       Height = 21
       Date = 44165.000000000000000000
       Time = 0.923828726852661900
-      TabOrder = 5
+      TabOrder = 4
     end
     object EdtAltura: TEdit
       Left = 32
       Top = 157
       Width = 73
       Height = 21
-      TabOrder = 6
+      TabOrder = 5
     end
     object EdtPeso: TEdit
       Left = 111
       Top = 157
       Width = 73
       Height = 21
-      TabOrder = 7
+      TabOrder = 6
     end
     object EdtEstado: TEdit
       Left = 335
       Top = 155
       Width = 306
       Height = 21
-      TabOrder = 8
+      TabOrder = 7
     end
     object EdtCidade: TEdit
       Left = 32
       Top = 205
       Width = 272
       Height = 21
-      TabOrder = 9
+      TabOrder = 8
     end
     object EdtEndereco: TEdit
       Left = 335
       Top = 205
       Width = 306
       Height = 21
-      TabOrder = 10
+      TabOrder = 9
     end
     object PnlScrollSintomas: TPanel
       Left = 32
@@ -380,7 +389,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       BevelOuter = bvNone
       Caption = 'PnlScrollSintomas'
       ShowCaption = False
-      TabOrder = 11
+      TabOrder = 10
       object ScrollBar1: TScrollBar
         Left = 0
         Top = 41
@@ -407,14 +416,14 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       Top = 341
       Width = 272
       Height = 21
-      TabOrder = 12
+      TabOrder = 11
     end
     object EdtSenha: TEdit
       Left = 32
       Top = 389
       Width = 272
       Height = 21
-      TabOrder = 13
+      TabOrder = 12
     end
   end
 end

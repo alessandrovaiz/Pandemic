@@ -26,7 +26,10 @@ inherited FrmCadastroSintoma: TFrmCadastroSintoma
       Layout = tlCenter
     end
     inherited PnlNavBar: TPanel
+      TabOrder = 1
       inherited LblCadastro: TLabel
+        Width = 487
+        Height = 33
         Caption = 'Cadastrar Sintoma'
         ExplicitWidth = 155
       end
@@ -43,10 +46,10 @@ inherited FrmCadastroSintoma: TFrmCadastroSintoma
       Top = 85
       Width = 609
       Height = 21
-      TabOrder = 1
+      TabOrder = 0
     end
     inherited PnlBotao: TPanel
-      TabOrder = 2
+      TabOrder = 3
     end
   end
 end

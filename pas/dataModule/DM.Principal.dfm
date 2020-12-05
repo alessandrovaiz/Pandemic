@@ -5,6 +5,7 @@ object DMPrincipal: TDMPrincipal
   Height = 324
   Width = 548
   object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    VendorHome = 'C:\Users\Andre-VM\Documents\Pandemic\dpr\Win32\Debug'
     Left = 216
     Top = 40
   end

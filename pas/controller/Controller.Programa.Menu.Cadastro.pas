@@ -9,7 +9,10 @@ uses
 type
   TControllerProgramaMenuCadastro = class(TControllerProgramaMenu<TFrmCadastro>)
   private
+    procedure AbrirCadastro(const AControladorFilho: IControllerProgramaMenu);
+
     procedure PacientesClick(Sender: TObject);
+    procedure SintomasClick(Sender: TObject);
   public
     constructor Create;
   end;
@@ -17,23 +20,35 @@ type
 implementation
 
 uses
-  Controller.Cadastro.Paciente;
+  Controller.Cadastro.Paciente,
+  Controller.Cadastro.Sintoma;
 
 { TControllerProgramaMenuCadastro }
+
+procedure TControllerProgramaMenuCadastro.AbrirCadastro(const AControladorFilho: IControllerProgramaMenu);
+begin
+  oControladorFilho := AControladorFilho;
+  oControladorFilho.SetParent(oFrmView.Parent);
+
+  oFrmView.Hide;
+  oControladorFilho.Show;
+end;
 
 constructor TControllerProgramaMenuCadastro.Create;
 begin
   oFrmView := TFrmCadastro.Create(nil);
   oFrmView.BtnPacientes.OnClick := PacientesClick;
+  oFrmView.BtnSintomas.OnClick := SintomasClick;
 end;
 
 procedure TControllerProgramaMenuCadastro.PacientesClick(Sender: TObject);
 begin
-  oControladorFilho := TControllerCadastroPaciente.Create(Self);
-  oControladorFilho.SetParent(oFrmView.Parent);
+  AbrirCadastro(TControllerCadastroPaciente.Create(Self));
+end;
 
-  oFrmView.Hide;
-  oControladorFilho.Show;
+procedure TControllerProgramaMenuCadastro.SintomasClick(Sender: TObject);
+begin
+  AbrirCadastro(TControllerCadastroSintoma.Create(Self));
 end;
 
 end.

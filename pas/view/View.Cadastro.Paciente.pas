@@ -37,8 +37,6 @@ type
     EdtChaveAcesso: TEdit;
     Label14: TLabel;
     EdtSenha: TEdit;
-    PnlBotao: TPanel;
-    BtnCadastrar: TSpeedButton;
   private
     { Private declarations }
   public

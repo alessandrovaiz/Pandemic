@@ -3,8 +3,6 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
   PixelsPerInch = 96
   TextHeight = 13
   inherited PnlPrograma: TPanel
-    ExplicitLeft = -16
-    ExplicitTop = -32
     object Label2: TLabel [0]
       Left = 32
       Top = 38
@@ -391,9 +389,6 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
         Align = alBottom
         PageSize = 0
         TabOrder = 0
-        ExplicitLeft = -64
-        ExplicitTop = 24
-        ExplicitWidth = 249
       end
       object PnlSintomas: TPanel
         Left = 0
@@ -405,9 +400,6 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
         Caption = 'PnlSintomas'
         ShowCaption = False
         TabOrder = 1
-        ExplicitTop = -32
-        ExplicitWidth = 769
-        ExplicitHeight = 89
       end
     end
     object EdtChaveAcesso: TEdit
@@ -423,39 +415,6 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       Width = 272
       Height = 21
       TabOrder = 13
-    end
-    object PnlBotao: TPanel
-      Left = 496
-      Top = 433
-      Width = 145
-      Height = 41
-      BevelOuter = bvNone
-      Color = 7366144
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 7366144
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 14
-      object BtnCadastrar: TSpeedButton
-        Left = 0
-        Top = 0
-        Width = 145
-        Height = 41
-        Align = alClient
-        Caption = 'CADASTRAR'
-        Flat = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        ExplicitLeft = 1
-        ExplicitWidth = 185
-      end
     end
   end
 end

@@ -18,6 +18,10 @@ type
     LblListar: TLinkLabel;
     Panel1: TPanel;
     LblCadastro: TLabel;
+    PnlBotao: TPanel;
+    BtnCadastrar: TSpeedButton;
+    PnlCancelar: TPanel;
+    BtnCancelar: TSpeedButton;
   private
     { Private declarations }
   public

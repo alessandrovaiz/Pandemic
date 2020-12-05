@@ -34,7 +34,6 @@ object FrmCadastroBase: TFrmCadastroBase
     Color = 14671839
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 423
     object PnlNavBar: TPanel
       Left = 0
       Top = 0
@@ -144,6 +143,69 @@ object FrmCadastroBase: TFrmCadastroBase
           Caption = '<a href="">Listar Pacientes</a>'
           TabOrder = 0
         end
+      end
+    end
+    object PnlBotao: TPanel
+      Left = 350
+      Top = 433
+      Width = 145
+      Height = 41
+      BevelOuter = bvNone
+      Color = 7366144
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 7366144
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 1
+      object BtnCadastrar: TSpeedButton
+        Left = 0
+        Top = 0
+        Width = 145
+        Height = 41
+        Align = alClient
+        Caption = 'SALVAR'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitLeft = 1
+        ExplicitWidth = 185
+      end
+    end
+    object PnlCancelar: TPanel
+      Left = 510
+      Top = 433
+      Width = 145
+      Height = 41
+      BevelOuter = bvNone
+      Color = 16514043
+      ParentBackground = False
+      TabOrder = 2
+      object BtnCancelar: TSpeedButton
+        Left = 0
+        Top = 0
+        Width = 145
+        Height = 41
+        Cursor = crHandPoint
+        Align = alClient
+        Caption = 'CANCELAR'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clSilver
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitLeft = 96
+        ExplicitTop = 16
+        ExplicitWidth = 120
+        ExplicitHeight = 30
       end
     end
   end

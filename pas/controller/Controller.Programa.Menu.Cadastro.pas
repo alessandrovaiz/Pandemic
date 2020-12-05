@@ -29,6 +29,7 @@ procedure TControllerProgramaMenuCadastro.AbrirCadastro(const AControladorFilho:
 begin
   oControladorFilho := AControladorFilho;
   oControladorFilho.SetParent(oFrmView.Parent);
+  oControladorFilho.SetMethodFormResize(OnResize);
 
   oFrmView.Hide;
   oControladorFilho.Show;

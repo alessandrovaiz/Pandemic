@@ -17,6 +17,7 @@ type
 
     procedure VoltarClick(Sender: TObject);
   protected
+    procedure SetColorParent; override;
     procedure CadastrarClick(Sender: TObject); virtual; abstract;
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   public
@@ -28,7 +29,8 @@ type
 implementation
 
 uses
-  Winapi.Windows;
+  Winapi.Windows,
+  Vcl.ExtCtrls;
 
 { TControllerCadastroBase<T> }
 
@@ -49,6 +51,11 @@ end;
 function TControllerCadastroBase<T>.Ref: IControllerProgramaMenu;
 begin
   Result := Self;
+end;
+
+procedure TControllerCadastroBase<T>.SetColorParent;
+begin
+  TPanel(oFrmView.Parent).Color := $00DFDFDF;
 end;
 
 procedure TControllerCadastroBase<T>.VoltarClick(Sender: TObject);

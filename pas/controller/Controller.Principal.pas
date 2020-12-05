@@ -38,7 +38,8 @@ uses
   Vcl.Controls,
   Vcl.Graphics,
   Enum.Margin,
-  Controller.Programa.Menu;
+  Controller.Programa.Menu,
+  Constantes.Programas;
 
 { TControllerPrincipal }
 
@@ -82,6 +83,9 @@ begin
   oFrmView.OnResize := FormResize;
   oListaProgramaMenu := TListaProgramaMenu.Create;
   MontarMenu;
+
+  oFrmView.Constraints.MinHeight := ProgramaMenuHeight + oFrmView.PnlHeader.Height + 20;
+  oFrmView.Constraints.MinWidth := ProgramaMenuWidth + oFrmView.PnlMenu.Width + 20;
 end;
 
 destructor TControllerPrincipal.Destroy;
@@ -101,12 +105,12 @@ begin
   if (not(Assigned(oControllerAtivo))) then
     Exit;
 
-  if (oFrmView.PnlPrograma.Width > 675) or (oFrmView.PnlPrograma.Height > 453) then
+  if (oFrmView.PnlPrograma.Width > ProgramaMenuWidth) or (oFrmView.PnlPrograma.Height > ProgramaMenuHeight) then
   begin
-    oControllerAtivo.SetMargin(tmgLeft, (oFrmView.PnlPrograma.ClientWidth - 675) div 2);
-    oControllerAtivo.SetMargin(tmgRight, (oFrmView.PnlPrograma.ClientWidth - 675) div 2);
-    oControllerAtivo.SetMargin(tmgTop, (oFrmView.PnlPrograma.ClientHeight - 453) div 2);
-    oControllerAtivo.SetMargin(tmgBot, (oFrmView.PnlPrograma.ClientHeight - 453) div 2);
+    oControllerAtivo.SetMargin(tmgLeft, (oFrmView.PnlPrograma.ClientWidth - ProgramaMenuWidth) div 2);
+    oControllerAtivo.SetMargin(tmgRight, (oFrmView.PnlPrograma.ClientWidth - ProgramaMenuWidth) div 2);
+    oControllerAtivo.SetMargin(tmgTop, (oFrmView.PnlPrograma.ClientHeight - ProgramaMenuHeight) div 2);
+    oControllerAtivo.SetMargin(tmgBot, (oFrmView.PnlPrograma.ClientHeight - ProgramaMenuHeight) div 2);
   end
   else
   begin
@@ -168,6 +172,7 @@ begin
     oProgramaMenu.LabellTituloPrograma := oFrmView.LblNomePrograma;
     oProgramaMenu.Controlador := oEPrograma.GetControladorPrograma;
     oProgramaMenu.Controlador.SetParent(oFrmView.PnlPrograma);
+    oProgramaMenu.Controlador.SetMethodFormResize(FormResize);
 
     oListaProgramaMenu.Add(oProgramaMenu);
   end;

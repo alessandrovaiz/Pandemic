@@ -8,12 +8,13 @@ uses
   Enum.Margin;
 
 type
+  TMethodFormResize = reference to procedure(Sender: TObject);
+
   IControllerProgramaMenu = interface
     procedure SetParent(const AParent: TWinControl);
+    procedure SetMethodFormResize(const AMethodFormResize: TMethodFormResize);
     procedure Show;
     procedure Hide;
-    procedure SetHeight(const AHeight: Integer);
-    procedure SetWidth(const AWidth: Integer);
     procedure SetMargin(const AMargin: TEnumMargin; const ATamanho: Integer);
 
     function Height: Integer;
@@ -25,8 +26,12 @@ type
   protected
     oFrmView: T;
     oControladorFilho: IControllerProgramaMenu;
+    OnResize: TMethodFormResize;
+
+    procedure SetColorParent; virtual;
   public
     procedure SetParent(const AParent: TWinControl);
+    procedure SetMethodFormResize(const AMethodFormResize: TMethodFormResize);
     procedure SetHeight(const AHeight: Integer);
     procedure SetWidth(const AWidth: Integer);
     procedure SetMargin(const AMargin: TEnumMargin; const ATamanho: Integer);
@@ -42,6 +47,10 @@ type
   end;
 
 implementation
+
+uses
+  Vcl.ExtCtrls,
+  Constantes.Programas;
 
 { TControllerProgramaMenu }
 
@@ -72,6 +81,11 @@ begin
   oFrmView.Hide;
 end;
 
+procedure TControllerProgramaMenu<T>.SetColorParent;
+begin
+  TPanel(oFrmView.Parent).Color := $FFFFFF;
+end;
+
 procedure TControllerProgramaMenu<T>.SetHeight(const AHeight: Integer);
 begin
   oFrmView.Height := Height;
@@ -89,6 +103,11 @@ begin
     tmgBot:
       oFrmView.Margins.Bottom := ATamanho;
   end;
+end;
+
+procedure TControllerProgramaMenu<T>.SetMethodFormResize(const AMethodFormResize: TMethodFormResize);
+begin
+  OnResize := AMethodFormResize;
 end;
 
 procedure TControllerProgramaMenu<T>.SetParent(const AParent: TWinControl);
@@ -109,6 +128,11 @@ begin
     oControladorFilho := Nil;
   end;
 
+  oFrmView.Height := ProgramaMenuHeight;
+  oFrmView.Width := ProgramaMenuWidth;
+
+  OnResize(oFrmView);
+  SetColorParent;
   oFrmView.Show;
 end;
 

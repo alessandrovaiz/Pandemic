@@ -25,31 +25,9 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       ShowHint = False
       Layout = tlCenter
     end
-    object Label3: TLabel [1]
+    object Label4: TLabel [1]
       Left = 32
-      Top = 87
-      Width = 33
-      Height = 17
-      ParentCustomHint = False
-      Alignment = taCenter
-      BiDiMode = bdLeftToRight
-      Caption = 'Idade'
-      Color = clBtnFace
-      Font.Charset = EASTEUROPE_CHARSET
-      Font.Color = 4276014
-      Font.Height = -13
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentBiDiMode = False
-      ParentColor = False
-      ParentFont = False
-      ParentShowHint = False
-      ShowHint = False
-      Layout = tlCenter
-    end
-    object Label4: TLabel [2]
-      Left = 94
-      Top = 87
+      Top = 88
       Width = 49
       Height = 17
       ParentCustomHint = False
@@ -69,7 +47,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       ShowHint = False
       Layout = tlCenter
     end
-    object Label5: TLabel [3]
+    object Label5: TLabel [2]
       Left = 335
       Top = 87
       Width = 28
@@ -91,7 +69,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       ShowHint = False
       Layout = tlCenter
     end
-    object Label6: TLabel [4]
+    object Label6: TLabel [3]
       Left = 511
       Top = 89
       Width = 119
@@ -113,7 +91,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       ShowHint = False
       Layout = tlCenter
     end
-    object Label7: TLabel [5]
+    object Label7: TLabel [4]
       Left = 32
       Top = 134
       Width = 34
@@ -135,7 +113,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       ShowHint = False
       Layout = tlCenter
     end
-    object Label8: TLabel [6]
+    object Label8: TLabel [5]
       Left = 111
       Top = 134
       Width = 28
@@ -157,7 +135,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       ShowHint = False
       Layout = tlCenter
     end
-    object Label9: TLabel [7]
+    object Label9: TLabel [6]
       Left = 335
       Top = 134
       Width = 40
@@ -179,7 +157,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       ShowHint = False
       Layout = tlCenter
     end
-    object Label10: TLabel [8]
+    object Label10: TLabel [7]
       Left = 32
       Top = 182
       Width = 41
@@ -201,7 +179,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       ShowHint = False
       Layout = tlCenter
     end
-    object Label11: TLabel [9]
+    object Label11: TLabel [8]
       Left = 335
       Top = 182
       Width = 55
@@ -223,7 +201,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       ShowHint = False
       Layout = tlCenter
     end
-    object Label12: TLabel [10]
+    object Label12: TLabel [9]
       Left = 32
       Top = 232
       Width = 53
@@ -245,15 +223,15 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       ShowHint = False
       Layout = tlCenter
     end
-    object Label13: TLabel [11]
+    object Label13: TLabel [10]
       Left = 32
       Top = 306
-      Width = 99
+      Width = 31
       Height = 17
       ParentCustomHint = False
       Alignment = taCenter
       BiDiMode = bdLeftToRight
-      Caption = 'Chave de Acesso'
+      Caption = 'Email'
       Color = clBtnFace
       Font.Charset = EASTEUROPE_CHARSET
       Font.Color = 4276014
@@ -267,7 +245,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       ShowHint = False
       Layout = tlCenter
     end
-    object Label14: TLabel [12]
+    object Label14: TLabel [11]
       Left = 32
       Top = 354
       Width = 35
@@ -289,18 +267,40 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       ShowHint = False
       Layout = tlCenter
     end
+    object Label15: TLabel [12]
+      Left = 335
+      Top = 306
+      Width = 21
+      Height = 17
+      ParentCustomHint = False
+      Alignment = taCenter
+      BiDiMode = bdLeftToRight
+      Caption = 'CPF'
+      Color = clBtnFace
+      Font.Charset = EASTEUROPE_CHARSET
+      Font.Color = 4276014
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentBiDiMode = False
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = False
+      Layout = tlCenter
+    end
     inherited PnlNavBar: TPanel
-      TabOrder = 13
+      TabOrder = 12
       inherited LblCadastro: TLabel
         Width = 487
         Height = 33
       end
     end
     inherited PnlBotao: TPanel
-      TabOrder = 14
+      TabOrder = 13
     end
     inherited PnlCancelar: TPanel
-      TabOrder = 15
+      TabOrder = 14
     end
     object EdtNome: TEdit
       Left = 32
@@ -309,26 +309,20 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       Height = 21
       TabOrder = 0
     end
-    object EdtIdade: TEdit
+    object EdtTelefone: TEdit
       Left = 32
       Top = 110
-      Width = 57
+      Width = 272
       Height = 21
+      NumbersOnly = True
       TabOrder = 1
-    end
-    object EdtTelefone: TEdit
-      Left = 94
-      Top = 110
-      Width = 210
-      Height = 21
-      TabOrder = 2
     end
     object CmbSexo: TComboBox
       Left = 335
       Top = 110
       Width = 114
       Height = 21
-      TabOrder = 3
+      TabOrder = 2
       Items.Strings = (
         'Masculino'
         'Feminino')
@@ -340,42 +334,44 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       Height = 21
       Date = 44165.000000000000000000
       Time = 0.923828726852661900
-      TabOrder = 4
+      TabOrder = 3
     end
     object EdtAltura: TEdit
       Left = 32
       Top = 157
       Width = 73
       Height = 21
-      TabOrder = 5
+      NumbersOnly = True
+      TabOrder = 4
     end
     object EdtPeso: TEdit
       Left = 111
       Top = 157
       Width = 73
       Height = 21
-      TabOrder = 6
+      NumbersOnly = True
+      TabOrder = 5
     end
     object EdtEstado: TEdit
       Left = 335
       Top = 155
       Width = 306
       Height = 21
-      TabOrder = 7
+      TabOrder = 6
     end
     object EdtCidade: TEdit
       Left = 32
       Top = 205
       Width = 272
       Height = 21
-      TabOrder = 8
+      TabOrder = 7
     end
     object EdtEndereco: TEdit
       Left = 335
       Top = 205
       Width = 306
       Height = 21
-      TabOrder = 9
+      TabOrder = 8
     end
     object PnlScrollSintomas: TPanel
       Left = 32
@@ -385,7 +381,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       BevelOuter = bvNone
       Caption = 'PnlScrollSintomas'
       ShowCaption = False
-      TabOrder = 10
+      TabOrder = 9
       object PnlSintomas: TPanel
         Left = 0
         Top = 0
@@ -396,22 +392,29 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
         Caption = 'PnlSintomas'
         ShowCaption = False
         TabOrder = 0
-        ExplicitHeight = 41
       end
     end
-    object EdtChaveAcesso: TEdit
+    object EdtEmail: TEdit
       Left = 32
       Top = 329
       Width = 272
       Height = 21
-      TabOrder = 11
+      TabOrder = 10
     end
     object EdtSenha: TEdit
       Left = 32
       Top = 377
       Width = 272
       Height = 21
-      TabOrder = 12
+      PasswordChar = '*'
+      TabOrder = 11
+    end
+    object EdtCPF: TEdit
+      Left = 335
+      Top = 329
+      Width = 306
+      Height = 21
+      TabOrder = 15
     end
   end
 end

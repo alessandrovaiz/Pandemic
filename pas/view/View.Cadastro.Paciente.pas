@@ -11,8 +11,6 @@ type
   TFrmCadastroPaciente = class(TFrmCadastroBase)
     Label2: TLabel;
     EdtNome: TEdit;
-    Label3: TLabel;
-    EdtIdade: TEdit;
     Label4: TLabel;
     EdtTelefone: TEdit;
     Label5: TLabel;
@@ -33,9 +31,11 @@ type
     PnlSintomas: TPanel;
     PnlScrollSintomas: TPanel;
     Label13: TLabel;
-    EdtChaveAcesso: TEdit;
+    EdtEmail: TEdit;
     Label14: TLabel;
     EdtSenha: TEdit;
+    EdtCPF: TEdit;
+    Label15: TLabel;
   private
     { Private declarations }
   public

@@ -89,7 +89,7 @@ begin
     DMPrincipal.FDQueryInsert.SQL.Text := 'insert into USERS (EMA_USR,PAS_USR,PER_USR,ID_PER) values (:EMA_USR,:PAS_USR,:PER_USR,:ID_PER)';
     DMPrincipal.FDQueryInsert.Params.ParamByName('EMA_USR').AsString := oFrmView.EdtEmail.Text;
     DMPrincipal.FDQueryInsert.Params.ParamByName('PAS_USR').AsString := oFrmView.EdtSenha.Text;
-    DMPrincipal.FDQueryInsert.Params.ParamByName('PER_USR').AsString := Integer(tpuPaciente).ToString;
+    DMPrincipal.FDQueryInsert.Params.ParamByName('PER_USR').AsInteger := Integer(tpuPaciente);
     DMPrincipal.FDQueryInsert.Params.ParamByName('ID_PER').AsInteger := iCodigoPessoa;
 
     DMPrincipal.FDQueryInsert.ExecSQL;

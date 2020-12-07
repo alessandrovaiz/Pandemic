@@ -7,7 +7,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.Actions, Vcl.ActnList, Vcl.Menus,
   Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons, System.ImageList, Vcl.ImgList,
   Vcl.Imaging.pngimage,
-  uFormBorderless;
+  uFormBorderless, REST.Types, REST.Client, Data.Bind.Components,
+  Data.Bind.ObjectScope;
 
 type
   TFrmPrincipal = class(TBorderlessForm)
@@ -31,6 +32,9 @@ type
     BtnFechar: TSpeedButton;
     BtnMaximizar: TSpeedButton;
     BtnMinimizar: TSpeedButton;
+    RESTClient1: TRESTClient;
+    RESTRequest1: TRESTRequest;
+    RESTResponse1: TRESTResponse;
   end;
 
 implementation

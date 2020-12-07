@@ -312,4 +312,33 @@ object FrmPrincipal: TFrmPrincipal
     ParentBackground = False
     TabOrder = 2
   end
+  object RESTClient1: TRESTClient
+    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
+    AcceptCharset = 'utf-8, *;q=0.8'
+    BaseURL = 'https://covid19-brazil-api.now.sh/api/report/v1'
+    Params = <>
+    RaiseExceptionOn500 = False
+    Left = 856
+    Top = 64
+  end
+  object RESTRequest1: TRESTRequest
+    Client = RESTClient1
+    Params = <
+      item
+        Kind = pkURLSEGMENT
+        Name = 'pais'
+        Options = [poAutoCreated]
+        Value = 'brazil'
+      end>
+    Resource = '{pais}'
+    Response = RESTResponse1
+    SynchronizedEvents = False
+    Left = 856
+    Top = 120
+  end
+  object RESTResponse1: TRESTResponse
+    ContentType = 'application/json'
+    Left = 856
+    Top = 176
+  end
 end

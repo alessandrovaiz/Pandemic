@@ -6,7 +6,8 @@ uses
   Vcl.Forms,
   Controller.Base,
   View.Principal,
-  VO.Programa.Menu;
+  VO.Programa.Menu,
+  System.Generics.Collections;
 
 type
   TControllerPrincipal = class(TControllerBase<TFrmPrincipal>)
@@ -15,6 +16,10 @@ type
 
     { Metodo Especificos }
     procedure MontarMenu;
+    procedure ImportarDadosIBGE;
+    procedure InserirRegioes(const ADicRegioes: TDictionary<String, Integer>);
+    procedure InserirEstados(const ADicRegioes, ADicEstados: TDictionary<String, Integer>);
+    procedure InserirCidades(const ADicEstados: TDictionary<String, Integer>);
 
     { Eventos Formulario }
     procedure BtnSairClick(Sender: TObject);
@@ -39,9 +44,16 @@ uses
   Vcl.Graphics,
   Enum.Margin,
   Controller.Programa.Menu,
-  Constantes.Programas;
+  Constantes.Programas,
+  DM.Principal,
+  SplashScreen,
+  System.JSON,
+  System.SysUtils;
 
-{ TControllerPrincipal }
+const
+  API_IBGE = 'https://servicodados.ibge.gov.br/api/v1/localidades/';
+
+  { TControllerPrincipal }
 
 procedure TControllerPrincipal.BtnItemMenuClick(Sender: TObject);
 var
@@ -83,6 +95,7 @@ begin
   oFrmView.OnResize := FormResize;
   oListaProgramaMenu := TListaProgramaMenu.Create;
   MontarMenu;
+  ImportarDadosIBGE;
 
   oFrmView.Constraints.MinHeight := ProgramaMenuHeight + oFrmView.PnlHeader.Height + 20;
   oFrmView.Constraints.MinWidth := ProgramaMenuWidth + oFrmView.PnlMenu.Width + 20;
@@ -118,6 +131,171 @@ begin
     oControllerAtivo.SetMargin(tmgRight, 0);
     oControllerAtivo.SetMargin(tmgTop, 0);
     oControllerAtivo.SetMargin(tmgBot, 0);
+  end;
+end;
+
+procedure TControllerPrincipal.ImportarDadosIBGE;
+var
+  oDicRegioes: TDictionary<String, Integer>;
+  oDicEstados: TDictionary<String, Integer>;
+begin
+  DMPrincipal.FDQuery.SQL.Clear;
+  DMPrincipal.FDQuery.SQL.Add('select count(*) counter from state');
+  DMPrincipal.FDQuery.Active := True;
+
+  oDicEstados := TDictionary<String, Integer>.Create;
+  oDicRegioes := TDictionary<String, Integer>.Create;
+  try
+    if (DMPrincipal.FDQuery.FieldByName('counter').AsInteger = 0) then
+    begin
+      DMPrincipal.FDQuery.Active := False;
+
+      InserirRegioes(oDicRegioes);
+      InserirEstados(oDicRegioes, oDicEstados);
+      InserirCidades(oDicEstados);
+    end;
+  finally
+    oDicEstados.Free;
+    oDicRegioes.Free;
+  end;
+end;
+
+procedure TControllerPrincipal.InserirCidades(const ADicEstados: TDictionary<String, Integer>);
+var
+  oResponseJSON: TJSONValue;
+  oResponseJSONArray: TJSONArray;
+  oArrayElement: TJSONValue;
+  i: Integer;
+begin
+  oFrmView.RESTClient1.BaseURL := API_IBGE + '/municipios';
+  oFrmView.RESTRequest1.Params.Clear;
+  oFrmView.RESTRequest1.Resource := '';
+
+  TSplashScreen.Mostrar;
+  oFrmView.RESTRequest1.Execute;
+  oResponseJSON := TJSONObject.ParseJSONValue(oFrmView.RESTResponse1.Content.Trim);
+
+  try
+    oResponseJSONArray := oResponseJSON.GetValue<TJSONArray>;
+
+    DMPrincipal.FDQueryInsert.SQL.Text := 'insert into city (NAM_CIT,ID_STA) values (:NamCit,:IdSta)';
+    DMPrincipal.FDQueryInsert.Params.ArraySize := oResponseJSONArray.Count;
+
+    for i := 0 to Pred(oResponseJSONArray.Count) do
+    begin
+      oArrayElement := oResponseJSONArray.Items[i];
+
+      DMPrincipal.FDQueryInsert.Params.ParamByName('NamCit').AsStrings[i] := oArrayElement.GetValue<String>('nome');
+      DMPrincipal.FDQueryInsert.Params.ParamByName('IdSta').AsIntegers[i] := ADicEstados[oArrayElement.GetValue<TJSONValue>('microrregiao').GetValue<TJSONValue>('mesorregiao')
+        .GetValue<TJSONValue>('UF').GetValue<String>('sigla')];
+    end;
+
+    DMPrincipal.FDQueryInsert.Execute(DMPrincipal.FDQueryInsert.Params.ArraySize);
+  finally
+    oResponseJSON.Free;
+    TSplashScreen.Esconder;
+  end;
+end;
+
+procedure TControllerPrincipal.InserirEstados(const ADicRegioes, ADicEstados: TDictionary<String, Integer>);
+
+  function GetIdEstado: Integer;
+  begin
+    DMPrincipal.FDQuery.SQL.Clear;
+    DMPrincipal.FDQuery.SQL.Add('select nextval(''state_id_sta_seq''::regclass) id');
+    DMPrincipal.FDQuery.Active := True;
+    try
+      Result := DMPrincipal.FDQuery.FieldByName('id').AsInteger;
+    finally
+      DMPrincipal.FDQuery.Active := False;
+    end;
+  end;
+
+var
+  oResponseJSON: TJSONValue;
+  oResponseJSONArray: TJSONArray;
+  oArrayElement: TJSONValue;
+  i: Integer;
+begin
+  oFrmView.RESTClient1.BaseURL := API_IBGE + '/estados';
+  oFrmView.RESTRequest1.Params.Clear;
+  oFrmView.RESTRequest1.Resource := '';
+
+  TSplashScreen.Mostrar;
+  oFrmView.RESTRequest1.Execute;
+  oResponseJSON := TJSONObject.ParseJSONValue(oFrmView.RESTResponse1.Content.Trim);
+
+  try
+    oResponseJSONArray := oResponseJSON.GetValue<TJSONArray>;
+
+    DMPrincipal.FDQueryInsert.SQL.Text := 'insert into STATE (ID_STA,NAM_STA,INI_STA,COU_STA,ID_REG) values (:IdSta,:NamSta,:InitSta,''BR'',:IdReg)';
+    DMPrincipal.FDQueryInsert.Params.ArraySize := oResponseJSONArray.Count;
+
+    for i := 0 to Pred(oResponseJSONArray.Count) do
+    begin
+      oArrayElement := oResponseJSONArray.Items[i];
+
+      ADicEstados.Add(oArrayElement.GetValue<String>('sigla'), GetIdEstado);
+      DMPrincipal.FDQueryInsert.Params.ParamByName('IdSta').AsIntegers[i] := ADicEstados[oArrayElement.GetValue<String>('sigla')];
+      DMPrincipal.FDQueryInsert.Params.ParamByName('NamSta').AsStrings[i] := oArrayElement.GetValue<String>('nome');
+      DMPrincipal.FDQueryInsert.Params.ParamByName('InitSta').AsStrings[i] := oArrayElement.GetValue<String>('sigla');
+      DMPrincipal.FDQueryInsert.Params.ParamByName('IdReg').AsIntegers[i] := ADicRegioes[oArrayElement.GetValue<TJSONValue>('regiao').GetValue<String>('sigla')];
+    end;
+
+    DMPrincipal.FDQueryInsert.Execute(DMPrincipal.FDQueryInsert.Params.ArraySize);
+  finally
+    oResponseJSON.Free;
+    TSplashScreen.Esconder;
+  end;
+end;
+
+procedure TControllerPrincipal.InserirRegioes(const ADicRegioes: TDictionary<String, Integer>);
+
+  function GetIdRegiao: Integer;
+  begin
+    DMPrincipal.FDQuery.SQL.Clear;
+    DMPrincipal.FDQuery.SQL.Add('select nextval(''region_id_reg_seq''::regclass) id');
+    DMPrincipal.FDQuery.Active := True;
+    try
+      Result := DMPrincipal.FDQuery.FieldByName('id').AsInteger;
+    finally
+      DMPrincipal.FDQuery.Active := False;
+    end;
+  end;
+
+var
+  oResponseJSON: TJSONValue;
+  oResponseJSONArray: TJSONArray;
+  oArrayElement: TJSONValue;
+  i: Integer;
+begin
+  oFrmView.RESTClient1.BaseURL := API_IBGE + '/regioes';
+  oFrmView.RESTRequest1.Params.Clear;
+  oFrmView.RESTRequest1.Resource := '';
+
+  TSplashScreen.Mostrar;
+  oFrmView.RESTRequest1.Execute;
+  oResponseJSON := TJSONObject.ParseJSONValue(oFrmView.RESTResponse1.Content.Trim);
+
+  try
+    oResponseJSONArray := oResponseJSON.GetValue<TJSONArray>;
+
+    DMPrincipal.FDQueryInsert.SQL.Text := 'insert into REGION (ID_REG,NAM_REG) values (:IdReg, :NamReg)';
+    DMPrincipal.FDQueryInsert.Params.ArraySize := oResponseJSONArray.Count;
+
+    for i := 0 to Pred(oResponseJSONArray.Count) do
+    begin
+      oArrayElement := oResponseJSONArray.Items[i];
+
+      ADicRegioes.Add(oArrayElement.GetValue<String>('sigla'), GetIdRegiao);
+      DMPrincipal.FDQueryInsert.Params.ParamByName('IdReg').AsIntegers[i] := ADicRegioes[oArrayElement.GetValue<String>('sigla')];
+      DMPrincipal.FDQueryInsert.Params.ParamByName('NamReg').AsStrings[i] := oArrayElement.GetValue<String>('nome');
+    end;
+
+    DMPrincipal.FDQueryInsert.Execute(DMPrincipal.FDQueryInsert.Params.ArraySize);
+  finally
+    oResponseJSON.Free;
+    TSplashScreen.Esconder;
   end;
 end;
 

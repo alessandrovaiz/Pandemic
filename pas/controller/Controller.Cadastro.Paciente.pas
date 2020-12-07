@@ -101,6 +101,24 @@ begin
 
     DMPrincipal.FDQueryInsert.ExecSQL;
   end;
+
+  oFrmView.EdtNome.Clear;
+  oFrmView.EdtTelefone.Clear;
+  oFrmView.CmbSexo.ItemIndex := -1;
+  oFrmView.DtpData.DateTime := now;
+  oFrmView.EdtAltura.Clear;
+  oFrmView.EdtPeso.Clear;
+  oFrmView.CmbEstado.ItemIndex := -1;
+  oFrmView.CmbCidade.Clear;
+  oFrmView.EdtEndereco.Clear;
+  oFrmView.EdtEmail.Clear;
+  oFrmView.EdtCPF.Clear;
+  oFrmView.EdtCPF.Clear;
+  oFrmView.EdtSenha.Clear;
+  for oPairSintomas in oDicSintomas.ToArray do
+  begin
+    oPairSintomas.Value.Checked := False;
+  end;
 end;
 
 procedure TControllerCadastroPaciente.CmbEstadoExit(Sender: TObject);

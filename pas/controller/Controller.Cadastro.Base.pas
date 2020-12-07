@@ -19,6 +19,7 @@ type
   protected
     procedure SetColorParent; override;
     procedure CadastrarClick(Sender: TObject); virtual; abstract;
+    procedure ListarClick(Sender: TObject); virtual; abstract;
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   public
 
@@ -40,6 +41,7 @@ begin
   TFrmCadastroBase(oFrmView).BtnVoltar.OnClick := VoltarClick;
   TFrmCadastroBase(oFrmView).BtnCadastrar.OnClick := CadastrarClick;
   TFrmCadastroBase(oFrmView).BtnCancelar.OnClick := VoltarClick;
+  TFrmCadastroBase(oFrmView).LblListar.OnClick := ListarClick;
 end;
 
 procedure TControllerCadastroBase<T>.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);

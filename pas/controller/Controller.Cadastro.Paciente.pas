@@ -21,6 +21,7 @@ type
     procedure CmbEstadoExit(Sender: TObject);
   protected
     procedure CadastrarClick(Sender: TObject); override;
+    procedure ListarClick(Sender: TObject); override;
   public
     constructor Create(const AControladorPai: IControllerProgramaMenu); override;
     destructor Destroy; override;
@@ -33,7 +34,8 @@ uses
   Math,
   System.SysUtils,
   Enum.Permissao.Usuario,
-  FireDAC.Stan.Param;
+  FireDAC.Stan.Param,
+  View.ListarPaciente;
 
 { TControllerCadastroPaciente }
 
@@ -206,6 +208,11 @@ begin
   oListaEstado.Free;
   oListaCidades.Free;
   inherited;
+end;
+
+procedure TControllerCadastroPaciente.ListarClick(Sender: TObject);
+begin
+  iCodigoPessoa := ListarPaciente;
 end;
 
 procedure TControllerCadastroPaciente.LocalizarEstados;

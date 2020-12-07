@@ -11,10 +11,9 @@ type
   TControllerCadastroSintoma = class(TControllerCadastroBase<TFrmCadastroSintoma>)
   private
     iSintomaSelecionado: Integer;
-
-    procedure ListarSintomaClick(Sender: TObject);
   protected
     procedure CadastrarClick(Sender: TObject); override;
+    procedure ListarClick(Sender: TObject); override;
   public
     constructor Create(const AControladorPai: IControllerProgramaMenu); override;
   end;
@@ -48,11 +47,10 @@ end;
 constructor TControllerCadastroSintoma.Create(const AControladorPai: IControllerProgramaMenu);
 begin
   oFrmView := TFrmCadastroSintoma.Create(nil);
-  oFrmView.LblListar.OnClick := ListarSintomaClick;
   inherited Create(AControladorPai);
 end;
 
-procedure TControllerCadastroSintoma.ListarSintomaClick(Sender: TObject);
+procedure TControllerCadastroSintoma.ListarClick(Sender: TObject);
 begin
   iSintomaSelecionado := ListarSintomas;
 

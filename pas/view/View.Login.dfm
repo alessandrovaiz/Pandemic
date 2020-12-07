@@ -2,10 +2,10 @@ object FrmLogin: TFrmLogin
   Left = 0
   Top = 0
   BorderIcons = [biHelp]
-  BorderStyle = bsNone
+  BorderStyle = bsSingle
   Caption = 'FrmLogin'
-  ClientHeight = 486
-  ClientWidth = 769
+  ClientHeight = 457
+  ClientWidth = 763
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -46,8 +46,6 @@ object FrmLogin: TFrmLogin
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 3
       DesignSize = (
         767
         484)

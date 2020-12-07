@@ -61,6 +61,8 @@ begin
   oFrmLogin.BtnFechar.OnClick := CloseClick;
   oFrmLogin.BtnCancelar.OnClick := CloseClick;
   oFrmLogin.BtnEntrar.OnClick := LoginClick;
+  oFrmLogin.PnlImagem.OnMouseDown := oFrmLogin.TitleBarMouseDown;
+  oFrmLogin.PnlPrincipal.OnMouseDown := oFrmLogin.TitleBarMouseDown;
 end;
 
 procedure TControllerLogin.FormClose(Sender: TObject; var Action: TCloseAction);

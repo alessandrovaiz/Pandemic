@@ -35,7 +35,8 @@ uses
   Controller.Cadastro.Sintoma in '..\pas\controller\Controller.Cadastro.Sintoma.pas',
   View.ListarDados.Base in '..\pas\view\View.ListarDados.Base.pas' {FrmListarDadosBase},
   View.ListarSintomas in '..\pas\view\View.ListarSintomas.pas' {FrmListarSintomas},
-  Constantes.Programas in '..\pas\const\Constantes.Programas.pas';
+  Constantes.Programas in '..\pas\const\Constantes.Programas.pas',
+  View.ListarPaciente in '..\pas\view\View.ListarPaciente.pas' {FrmListarPaciente};
 
 {$R *.res}
 

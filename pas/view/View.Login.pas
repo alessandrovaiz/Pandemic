@@ -11,10 +11,11 @@ uses
   FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
   FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client, FireDAC.Phys.PG,
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
-  FireDAC.Comp.DataSet;
+  FireDAC.Comp.DataSet,
+  uFormBorderless;
 
 type
-  TFrmLogin = class(TForm)
+  TFrmLogin = class(TBorderlessForm)
     PnlPrincipal: TPanel;
     BtnFechar: TSpeedButton;
     lblStatus: TLabel;

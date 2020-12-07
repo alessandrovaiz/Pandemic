@@ -29,7 +29,8 @@ uses
   DM.Principal,
   Math,
   System.SysUtils,
-  Enum.Permissao.Usuario;
+  Enum.Permissao.Usuario,
+  FireDAC.Stan.Param;
 
 { TControllerCadastroPaciente }
 

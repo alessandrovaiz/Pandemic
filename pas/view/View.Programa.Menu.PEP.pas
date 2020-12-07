@@ -9,6 +9,7 @@ uses
 type
   TFrmPEP = class(TForm)
     Panel1: TPanel;
+    PnlPrograma: TPanel;
   private
     { Private declarations }
   public

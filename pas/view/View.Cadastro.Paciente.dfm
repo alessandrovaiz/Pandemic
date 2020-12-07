@@ -225,7 +225,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
     end
     object Label13: TLabel [10]
       Left = 32
-      Top = 306
+      Top = 332
       Width = 31
       Height = 17
       ParentCustomHint = False
@@ -247,7 +247,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
     end
     object Label14: TLabel [11]
       Left = 32
-      Top = 354
+      Top = 380
       Width = 35
       Height = 17
       ParentCustomHint = False
@@ -269,7 +269,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
     end
     object Label15: TLabel [12]
       Left = 335
-      Top = 306
+      Top = 332
       Width = 21
       Height = 17
       ParentCustomHint = False
@@ -290,17 +290,17 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       Layout = tlCenter
     end
     inherited PnlNavBar: TPanel
-      TabOrder = 12
+      TabOrder = 13
       inherited LblCadastro: TLabel
         Width = 487
         Height = 33
       end
     end
     inherited PnlBotao: TPanel
-      TabOrder = 13
+      TabOrder = 14
     end
     inherited PnlCancelar: TPanel
-      TabOrder = 14
+      TabOrder = 15
     end
     object EdtNome: TEdit
       Left = 32
@@ -352,20 +352,6 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       NumbersOnly = True
       TabOrder = 5
     end
-    object EdtEstado: TEdit
-      Left = 335
-      Top = 155
-      Width = 306
-      Height = 21
-      TabOrder = 6
-    end
-    object EdtCidade: TEdit
-      Left = 32
-      Top = 205
-      Width = 272
-      Height = 21
-      TabOrder = 7
-    end
     object EdtEndereco: TEdit
       Left = 335
       Top = 205
@@ -377,7 +363,7 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
       Left = 32
       Top = 255
       Width = 609
-      Height = 58
+      Height = 74
       BevelOuter = bvNone
       Caption = 'PnlScrollSintomas'
       ShowCaption = False
@@ -386,35 +372,50 @@ inherited FrmCadastroPaciente: TFrmCadastroPaciente
         Left = 0
         Top = 0
         Width = 609
-        Height = 58
+        Height = 74
         Align = alClient
         BevelOuter = bvNone
         Caption = 'PnlSintomas'
         ShowCaption = False
         TabOrder = 0
+        ExplicitHeight = 58
       end
     end
     object EdtEmail: TEdit
       Left = 32
-      Top = 329
+      Top = 355
       Width = 272
       Height = 21
       TabOrder = 10
     end
     object EdtSenha: TEdit
       Left = 32
-      Top = 377
+      Top = 403
       Width = 272
       Height = 21
       PasswordChar = '*'
-      TabOrder = 11
+      TabOrder = 12
     end
     object EdtCPF: TEdit
       Left = 335
-      Top = 329
+      Top = 355
       Width = 306
       Height = 21
-      TabOrder = 15
+      TabOrder = 11
+    end
+    object CmbEstado: TComboBox
+      Left = 335
+      Top = 157
+      Width = 306
+      Height = 21
+      TabOrder = 6
+    end
+    object CmbCidade: TComboBox
+      Left = 32
+      Top = 205
+      Width = 272
+      Height = 21
+      TabOrder = 7
     end
   end
 end

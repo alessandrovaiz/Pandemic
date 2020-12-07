@@ -10,6 +10,7 @@ uses
 type
   TFrmAjuda = class(TForm)
     PnlPrograma: TPanel;
+    Panel1: TPanel;
   private
     { Private declarations }
   public

@@ -22,9 +22,7 @@ type
     Label8: TLabel;
     EdtPeso: TEdit;
     Label9: TLabel;
-    EdtEstado: TEdit;
     Label10: TLabel;
-    EdtCidade: TEdit;
     EdtEndereco: TEdit;
     Label11: TLabel;
     Label12: TLabel;
@@ -36,6 +34,8 @@ type
     EdtSenha: TEdit;
     EdtCPF: TEdit;
     Label15: TLabel;
+    CmbEstado: TComboBox;
+    CmbCidade: TComboBox;
   private
     { Private declarations }
   public

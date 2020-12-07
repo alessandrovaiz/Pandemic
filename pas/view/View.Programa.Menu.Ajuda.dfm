@@ -26,10 +26,20 @@ object FrmAjuda: TFrmAjuda
     Margins.Right = 1
     Margins.Bottom = 1
     Align = alClient
+    Anchors = [akLeft, akRight, akBottom]
     BevelOuter = bvNone
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 462
+    object Panel1: TPanel
+      Left = 56
+      Top = 184
+      Width = 617
+      Height = 41
+      Caption = 'Em produ'#231#227'o!'
+      Color = 4227327
+      ParentBackground = False
+      TabOrder = 0
+    end
   end
 end

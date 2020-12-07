@@ -104,6 +104,7 @@ begin
     DMPrincipal.FDQueryInsert.ExecSQL;
   end;
 
+  iCodigoPessoa := 0;
   oFrmView.EdtNome.Clear;
   oFrmView.EdtTelefone.Clear;
   oFrmView.CmbSexo.ItemIndex := -1;

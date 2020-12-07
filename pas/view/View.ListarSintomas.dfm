@@ -8,7 +8,6 @@ inherited FrmListarSintomas: TFrmListarSintomas
       ExplicitWidth = 720
       inherited LblNomePrograma: TLabel
         Width = 720
-        Height = 29
         Caption = 'Sintomas'
         ExplicitWidth = 65
       end
@@ -37,14 +36,18 @@ inherited FrmListarSintomas: TFrmListarSintomas
   inherited DBGridDados: TDBGrid
     Columns = <
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'id_sym'
+        Title.Alignment = taCenter
         Title.Caption = 'C'#243'digo'
         Visible = True
       end
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'des_sym'
+        Title.Alignment = taCenter
         Title.Caption = 'Descri'#231#227'o'
         Width = 653
         Visible = True

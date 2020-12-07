@@ -6,6 +6,7 @@ inherited FrmListarDadosBase: TFrmListarDadosBase
   Position = poScreenCenter
   OnClose = FormClose
   OnCreate = FormCreate
+  OnShow = FormShow
   ExplicitWidth = 758
   ExplicitHeight = 417
   PixelsPerInch = 96
@@ -254,14 +255,24 @@ inherited FrmListarDadosBase: TFrmListarDadosBase
     Width = 752
     Height = 314
     Align = alClient
+    BorderStyle = bsNone
     DataSource = DSDados
-    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    DrawingStyle = gdsClassic
+    FixedColor = 7366144
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 7366144
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ParentFont = False
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
+    TitleFont.Color = clWhite
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
+    OnDrawColumnCell = DBGridDadosDrawColumnCell
     OnDblClick = DBGridDadosDblClick
   end
   object DSDados: TDataSource

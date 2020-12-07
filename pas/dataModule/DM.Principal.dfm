@@ -18,9 +18,14 @@ object DMPrincipal: TDMPrincipal
     Params.Strings = (
       'Database=pandemic'
       'User_Name=postgres'
-      'Password=1234'
+      'Password=123'
       'DriverID=PG')
     Left = 128
     Top = 40
+  end
+  object FDQueryInsert: TFDQuery
+    Connection = FDConnection
+    Left = 377
+    Top = 41
   end
 end

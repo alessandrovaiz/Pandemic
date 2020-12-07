@@ -16,6 +16,7 @@ type
     FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     FDQuery: TFDQuery;
     FDConnection: TFDConnection;
+    FDQueryInsert: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
   private

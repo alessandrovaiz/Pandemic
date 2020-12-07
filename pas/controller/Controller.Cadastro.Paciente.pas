@@ -28,7 +28,8 @@ implementation
 uses
   DM.Principal,
   Math,
-  System.SysUtils;
+  System.SysUtils,
+  Enum.Permissao.Usuario;
 
 { TControllerCadastroPaciente }
 
@@ -52,27 +53,35 @@ var
 begin
   if (iCodigoPessoa = 0) then
   begin
-    iCodigoPessoa := GetIdPessoa;
+    DMPrincipal.FDQueryInsert.SQL.Text := 'insert into PERSON (ID_PER,NAM_PER,CPF_PER,EMA_PER,DAT_BIR,TEL1_PER,WEI_PER,HEI_PER) values values(:ID_PER,:NAM_PER,:CPF_PER,:EMA_PER,:DAT_BIR,:TEL1_PER,:WEI_PER,:HEI_PER)';
 
-    sValues := iCodigoPessoa.ToString + ',';
-    sValues := sValues + QuotedStr(oFrmView.EdtNome.Text) + ',';
-    sValues := sValues + QuotedStr(oFrmView.EdtCPF.Text) + ',';
-    sValues := sValues + QuotedStr(oFrmView.EdtEmail.Text) + ',';
-    sValues := sValues + QuotedStr(FormatDateTime('dd.mm.yyy', oFrmView.DtpData.DateTime)) + ',';
-    sValues := sValues + QuotedStr(oFrmView.EdtTelefone.Text) + ',';
-    sValues := sValues + oFrmView.EdtPeso.Text + ',';
-    sValues := sValues + oFrmView.EdtAltura.Text;
-
-    DMPrincipal.FDConnection.ExecSQL('insert into PERSON (ID_PER,NAM_PER,CPF_PER,EMA_PER,DAT_BIR,TEL1_PER,WEI_PER,HEI_PER) values (' + sValues + ')');
+    DMPrincipal.FDQueryInsert.Params.ParamByName('ID_PER').AsInteger := GetIdPessoa;
+    DMPrincipal.FDQueryInsert.Params.ParamByName('NAM_PER').AsString := oFrmView.EdtNome.Text;
+    DMPrincipal.FDQueryInsert.Params.ParamByName('CPF_PER').AsString := oFrmView.EdtCPF.Text;
+    DMPrincipal.FDQueryInsert.Params.ParamByName('EMA_PER').AsString := oFrmView.EdtEmail.Text;
+    DMPrincipal.FDQueryInsert.Params.ParamByName('DAT_BIR').AsDateTime := oFrmView.DtpData.DateTime;
+    DMPrincipal.FDQueryInsert.Params.ParamByName('TEL1_PER').AsString := oFrmView.EdtTelefone.Text;
+    DMPrincipal.FDQueryInsert.Params.ParamByName('WEI_PER').AsString := oFrmView.EdtPeso.Text;
+    DMPrincipal.FDQueryInsert.Params.ParamByName('HEI_PER').AsString := oFrmView.EdtAltura.Text;
 
     for oPairSintomas in oDicSintomas.ToArray do
     begin
-//      if (oPairSintomas.Value.Checked) then
-//      begin
-//        oPairSintomas.Key //Codigo do sintoma
-//        DMPrincipal.FDConnection.ExecSQL('insert into PERSON (ID_PER,NAM_PER,CPF_PER,EMA_PER,DAT_BIR,TEL1_PER,WEI_PER,HEI_PER) values (' + sValues + ')');
-//      end;
+      if (oPairSintomas.Value.Checked) then
+      begin
+       DMPrincipal.FDQueryInsert.SQL.Text := 'insert into PERSON_SYMPTOMS (ID_PER,ID_SYM,DAT_SYM,INT_SYM) values values(:ID_PER,:ID_SYM,:DAT_SYM,:INT_SYM)';
+       DMPrincipal.FDQueryInsert.Params.ParamByName('ID_PER').AsInteger := GetIdPessoa;
+       DMPrincipal.FDQueryInsert.Params.ParamByName('ID_SYM').AsInteger :=oPairSintomas.Key;
+       DMPrincipal.FDQueryInsert.Params.ParamByName('DAT_SYM').AsDateTime := now;
+       DMPrincipal.FDQueryInsert.Params.ParamByName('INT_SYM').AsString := '0';
+      end;
     end;
+
+    DMPrincipal.FDQueryInsert.SQL.Text := 'insert into USERS (EMA_USR,PAS_USR,PER_USR,ID_PER) values values(:EMA_USR,:PAS_USR,:PER_USR,:ID_PER)';
+    DMPrincipal.FDQueryInsert.Params.ParamByName('EMA_USR').AsString := oFrmView.EdtEmail.Text;
+    DMPrincipal.FDQueryInsert.Params.ParamByName('PAS_USR').AsString := oFrmView.EdtSenha.Text;
+    DMPrincipal.FDQueryInsert.Params.ParamByName('PER_USR').AsString := Integer(tpuPaciente).ToString;
+    DMPrincipal.FDQueryInsert.Params.ParamByName('ID_PER').AsInteger := iCodigoPessoa;
+
   end;
 end;
 

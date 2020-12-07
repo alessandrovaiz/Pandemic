@@ -18,7 +18,7 @@ object DMPrincipal: TDMPrincipal
     Params.Strings = (
       'Database=pandemic'
       'User_Name=postgres'
-      'Password=123'
+      'Password=1234'
       'DriverID=PG')
     Left = 128
     Top = 40
